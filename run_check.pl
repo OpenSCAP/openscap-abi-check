@@ -11,7 +11,7 @@ sub download {
 	my $version = shift;
 
 	if ($version == "master" or $version =~ /^maint-\d/) {
-		system("git clone --branch $version --single-branch ssh://git.fedorahosted.org/git/openscap.git openscap-$version");
+		system("git clone --branch $version --single-branch https://github.com/OpenSCAP/openscap.git openscap-$version");
 	}
 	else {
 		system("wget https://fedorahosted.org/releases/o/p/openscap/openscap-$version.tar.gz")
