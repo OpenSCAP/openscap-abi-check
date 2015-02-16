@@ -73,3 +73,4 @@ create_xml($new);
 
 system("abi-compliance-checker -cross-gcc /usr/bin/g++34 -lib openscap -old $old.xml -new $new.xml");
 system("cp compat_reports/openscap/${old}_to_${new}/compat_report.html reports/${old}_${new}.html");
+system("firefox reports/${old}_${new}.html");
