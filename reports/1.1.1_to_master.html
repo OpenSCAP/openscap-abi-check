@@ -1,0 +1,755 @@
+<!-- kind:binary;verdict:compatible;affected:0;added:50;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:4;changed_constants:0;tool_version:1.99.9 -->
+<!-- kind:source;verdict:compatible;affected:0;added:50;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.9 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="openscap, compatibility, API, report" />
+    <meta name="description" content="Compatibility report for the openscap library between 1.1.1 and master versions" />
+    <title>
+        openscap: 1.1.1 to master compatibility report
+    </title>
+    <style type="text/css">
+    body {
+    font-family:Arial, sans-serif;
+    color:Black;
+    font-size:14px;
+}
+hr {
+    color:Black;
+    background-color:Black;
+    height:1px;
+    border:0;
+}
+h1 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:26px;
+}
+h2 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:20px;
+    white-space:nowrap;
+}
+span.section {
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+    color:#003E69;
+    white-space:nowrap;
+    margin-left:5px;
+}
+span.new_sign {
+    font-weight:bold;
+    margin-left:26px;
+    font-size:16px;
+    color:#003E69;
+}
+span.new_sign_lbl {
+    margin-left:28px;
+    font-size:14px;
+    color:Black;
+}
+span:hover.section {
+    color:#336699;
+}
+span.section_affected {
+    cursor:pointer;
+    margin-left:7px;
+    padding-left:15px;
+    font-size:14px;
+    color:#cc3300;
+}
+span.section_info {
+    cursor:pointer;
+    margin-left:7px;
+    padding-left:15px;
+    font-size:14px;
+    color:Black;
+}
+span.extendable {
+    font-weight:100;
+    font-size:16px;
+}
+span.h_name {
+    color:#cc3300;
+    font-size:14px;
+    font-weight:bold;
+}
+div.h_list {
+    font-size:15px;
+    padding-left:5px;
+}
+span.ns {
+    color:#408080;
+    font-size:15px;
+}
+div.lib_list {
+    font-size:15px;
+    padding-left:5px;
+}
+span.lib_name {
+    color:Green;
+    font-size:14px;
+    font-weight:bold;
+}
+span.iname {
+    font-weight:bold;
+    font-size:16px;
+    color:#003E69;
+    margin-left:5px;
+}
+span.iname_b {
+    font-weight:bold;
+    font-size:15px;
+}
+span.iname_a {
+    color:#333333;
+    font-weight:bold;
+    font-size:15px;
+}
+span.sym_p {
+    font-weight:normal;
+    white-space:normal;
+}
+div.affect {
+    padding-left:15px;
+    padding-bottom:4px;
+    font-size:14px;
+    font-style:italic;
+    line-height:13px;
+}
+div.affected {
+    padding-left:30px;
+    padding-top:5px;
+}
+table.ptable {
+    border-collapse:collapse;
+    border:1px outset black;
+    line-height:16px;
+    margin-left:15px;
+    margin-top:3px;
+    margin-bottom:3px;
+    width:900px;
+}
+table.ptable td {
+    border:1px solid gray;
+    padding: 3px;
+}
+table.vtable {
+    border-collapse:collapse;
+    border:1px outset black;
+    line-height:16px;
+    margin-left:30px;
+    margin-top:10px;
+    width:100px;
+}
+table.vtable td {
+    border:1px solid gray;
+    white-space:nowrap;
+    padding: 3px;
+}
+table.ptable th, table.vtable th {
+    background-color:#eeeeee;
+    font-weight:bold;
+    color:#333333;
+    font-family:Verdana, Arial;
+    font-size:13px;
+    border:1px solid gray;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    padding: 3px;
+}
+table.summary {
+    border-collapse:collapse;
+    border:1px outset black;
+}
+table.summary th {
+    background-color:#eeeeee;
+    font-weight:100;
+    text-align:left;
+    font-size:15px;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding: 3px;
+}
+table.summary td {
+    text-align:right;
+    font-size:16px;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding: 3px 5px 3px 10px;
+}
+table.code_view {
+    cursor:text;
+    margin-top:7px;
+    margin-left:15px;
+    font-family:Monaco, Consolas, 'DejaVu Sans Mono', 'Droid Sans Mono', Monospace;
+    font-size:14px;
+    padding:10px;
+    border:1px solid #e0e8e5;
+    color:#444444;
+    background-color:#eff3f2;
+    overflow:auto;
+}
+table.code_view td {
+    padding-left:15px;
+    text-align:left;
+    white-space:nowrap;
+}
+span.mangled {
+    padding-left:15px;
+    font-size:14px;
+    cursor:text;
+    color:#444444;
+}
+span.sym_ver {
+    color:#333333;
+    white-space:nowrap;
+    font-family:"DejaVu Sans Mono", Monospace;
+}
+span.attr {
+    color:#333333;
+    font-weight:100;
+}
+span.color_p {
+    font-style:italic;
+    color:Brown;
+}
+span.param {
+    font-style:italic;
+}
+span.focus_p {
+    font-style:italic;
+    color:Red;
+}
+span.ttype {
+    font-weight:100;
+}
+span.nowrap {
+    white-space:nowrap;
+}
+span.value {
+    white-space:nowrap;
+    font-weight:bold;
+}
+td.passed {
+    background-color:#CCFFCC;
+}
+td.warning {
+    background-color:#F4F4AF;
+}
+td.failed {
+    background-color:#FFCCCC;
+}
+td.new {
+    background-color:#C6DEFF;
+}
+.tabset {
+    float:left;
+}
+a.tab {
+    border:1px solid #AAA;
+    float:left;
+    margin:0px 5px -1px 0px;
+    padding:3px 5px 3px 5px;
+    position:relative;
+    font-size:14px;
+    background-color:#DDD;
+    text-decoration:none;
+    color:Black;
+}
+a.disabled:hover
+{
+    color:Black;
+    background:#EEE;
+}
+a.active:hover
+{
+    color:Black;
+    background:White;
+}
+a.active {
+    border-bottom-color:White;
+    background-color:White;
+}
+div.tab {
+    border:1px solid #AAA;
+    padding:0 7px 0 12px;
+    width:97%;
+    clear:both;
+}
+    </style>
+    <script type="text/javascript" language="JavaScript">
+    <!--
+    function showContent(header, id)
+{
+    e = document.getElementById(id);
+    if(e.style.display == 'none')
+    {
+        e.style.display = 'block';
+        e.style.visibility = 'visible';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[&minus;]");
+    }
+    else
+    {
+        e.style.display = 'none';
+        e.style.visibility = 'hidden';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[+]");
+    }
+}
+function initTabs()
+{
+    var url = window.location.href;
+    if(url.indexOf('_Source_')!=-1 || url.indexOf('#Source')!=-1)
+    {
+        var tab1 = document.getElementById('BinaryID');
+        var tab2 = document.getElementById('SourceID');
+        tab1.className='tab disabled';
+        tab2.className='tab active';
+    }
+    var sets = document.getElementsByTagName('div');
+    for (var i = 0; i < sets.length; i++)
+    {
+        if (sets[i].className.indexOf('tabset') != -1)
+        {
+            var tabs = [];
+            var links = sets[i].getElementsByTagName('a');
+            for (var j = 0; j < links.length; j++)
+            {
+                if (links[j].className.indexOf('tab') != -1)
+                {
+                    tabs.push(links[j]);
+                    links[j].tabs = tabs;
+                    var tab = document.getElementById(links[j].href.substr(links[j].href.indexOf('#') + 1));
+                    //reset all tabs on start
+                    if (tab)
+                    {
+                        if (links[j].className.indexOf('active')!=-1) {
+                            tab.style.display = 'block';
+                        }
+                        else {
+                            tab.style.display = 'none';
+                        }
+                    }
+                    links[j].onclick = function()
+                    {
+                        var tab = document.getElementById(this.href.substr(this.href.indexOf('#') + 1));
+                        if (tab)
+                        {
+                            //reset all tabs before change
+                            for (var k = 0; k < this.tabs.length; k++)
+                            {
+                                document.getElementById(this.tabs[k].href.substr(this.tabs[k].href.indexOf('#') + 1)).style.display = 'none';
+                                this.tabs[k].className = this.tabs[k].className.replace('active', 'disabled');
+                            }
+                            this.className = 'tab active';
+                            tab.style.display = 'block';
+                            // window.location.hash = this.id.replace('ID', '');
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(url.indexOf('#')!=-1) {
+        location.href=location.href;
+    }
+}
+if (window.addEventListener) window.addEventListener('load', initTabs, false);
+else if (window.attachEvent) window.attachEvent('onload', initTabs);
+    -->
+    </script>
+    </head><body><a name='Source'></a><a name='Binary'></a><a name='Top'></a><h1><span class='nowrap'>API compatibility report for the <span style='color:Blue;'>openscap</span> library</span> <span class='nowrap'>&#160;between <span style='color:Red;'>1.1.1</span> and <span style='color:Red;'>master</span> versions on <span style='color:Blue;'>x86_64</span></span></h1>
+
+            <br/><div class='tabset'>
+            <a id='BinaryID' href='#BinaryTab' class='tab active'>Binary<br/>Compatibility</a>
+            <a id='SourceID' href='#SourceTab' style='margin-left:3px' class='tab disabled'>Source<br/>Compatibility</a>
+            </div><div id='BinaryTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Library Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.1.1</td></tr>
+<tr><th>Version #2</th><td>master</td></tr>
+<tr><th>CPU Type</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>3.4.6</td></tr>
+<tr><th>Subject</th><td width='150px'>Binary Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>28</a></td></tr>
+<tr><th>Total Shared Libraries</th><td><a href='#Libs' style='color:Blue;'>3</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>2263 / 680</td></tr>
+<tr><th>Verdict</th><td><span style='color:Green;'><b>Compatible</b></span></td></tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Binary_Added' style='color:Blue;'>50</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td class='warning'><a href='#Symbol_Binary_Problems_Low' style='color:Blue;'>4</a></td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+<tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Binary_Changes_In_Types' style='color:Blue;'>1</a></td></tr>
+</table>
+
+<a name='Binary_Added'></a><h2>Added Symbols (50)</h2><hr/>
+<span class='h_name'>cpe_dict.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">cpe_dict_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>cpe_lang.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">cpe_lang_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>ds_rds_session.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">ds_rds_session_dump_component_files&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>rds_session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_get_html_report&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>rds_session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_get_rds_idx&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_new_from_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_replace_report_with_source&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_select_report&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>report_id</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_select_report_request&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>report_request_id</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_set_target_dir&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>target_dir</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>ds_sds_session.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">ds_sds_session_dump_component_files&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>sds_session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_checklist_id&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session const* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_component_by_href&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>href</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_datastream_id&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session const* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_html_guide&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>profile_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_sds_idx&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_new_from_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_register_component_with_dependencies&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, char const* <span class='color_p'>container_name</span>, char const* <span class='color_p'>component_id</span>, <span class='nowrap'>char const* <span class='color_p'>target_filename</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_reset&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_select_checklist&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, char const* <span class='color_p'>datastream_id</span>, char const* <span class='color_p'>component_id</span>, <span class='nowrap'>char const* <span class='color_p'>benchmark_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_select_tailoring&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>component_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_set_datastream_id&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>datastream_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_set_target_dir&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>target_dir</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oscap_source.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">oscap_source_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_get_raw_memory&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>char** <span class='color_p'>buffer</span>,</span> <span class='nowrap'>size_t* <span class='color_p'>size</span> )</span></span></span><br/>
+<span class="iname">oscap_source_get_scap_type&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_get_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_new_from_file&#160;<span class='sym_p'>(&#160;<span class='nowrap'>char const* <span class='color_p'>filepath</span> )</span></span></span><br/>
+<span class="iname">oscap_source_new_from_memory&#160;<span class='sym_p'>(&#160;char const* <span class='color_p'>buffer</span>, <span class='nowrap'>size_t <span class='color_p'>size</span>,</span> <span class='nowrap'>char const* <span class='color_p'>filepath</span> )</span></span></span><br/>
+<span class="iname">oscap_source_readable_origin&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source const* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_save_as&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>char const* <span class='color_p'>filename</span> )</span></span></span><br/>
+<span class="iname">oscap_source_validate&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, xml_reporter <span class='color_p'>reporter</span>, <span class='nowrap'>void* <span class='color_p'>user</span> )</span></span></span><br/>
+<span class="iname">oscap_source_validate_schematron&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>char const* <span class='color_p'>outfile</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oscap_text.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">oscap_textlist_get_preferred_text&#160;<span class='sym_p'>(&#160;struct oscap_text_iterator* <span class='color_p'>texts</span>, <span class='nowrap'>char const* <span class='color_p'>preferred_lang</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_definitions.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">oval_definition_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_directives.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">oval_directives_model_import_source&#160;<span class='sym_p'>(&#160;struct oval_directives_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_results.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">oval_results_model_export_source&#160;<span class='sym_p'>(&#160;struct oval_results_model* <span class='color_p'>results_model</span>, struct oval_directives_model* <span class='color_p'>directives_model</span>, <span class='nowrap'>char const* <span class='color_p'>name</span> )</span></span></span><br/>
+<span class="iname">oval_results_model_import_source&#160;<span class='sym_p'>(&#160;struct oval_results_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_system_characteristics.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">oval_syschar_model_import_source&#160;<span class='sym_p'>(&#160;struct oval_syschar_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_variables.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">oval_variable_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>xccdf_benchmark.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">xccdf_benchmark_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_result_export_source&#160;<span class='sym_p'>(&#160;struct xccdf_result* <span class='color_p'>result</span>, <span class='nowrap'>char const* <span class='color_p'>filepath</span> )</span></span></span><br/>
+<span class="iname">xccdf_result_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_rule_result_override&#160;<span class='sym_p'>(&#160;struct xccdf_rule_result* <span class='color_p'>rule_result</span>, enum xccdf_test_result_type_t <span class='color_p'>new_result</span>, char const* <span class='color_p'>time</span>, char const* <span class='color_p'>authority</span>, <span class='nowrap'>struct oscap_text* <span class='color_p'>remark</span> )</span></span></span><br/>
+<span class="iname">xccdf_tailoring_import_source&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>struct xccdf_benchmark* <span class='color_p'>benchmark</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>xccdf_policy.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="iname">xccdf_policy_model_add_cpe_autodetect_source&#160;<span class='sym_p'>(&#160;struct xccdf_policy_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_policy_model_add_cpe_dict_source&#160;<span class='sym_p'>(&#160;struct xccdf_policy_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_policy_model_add_cpe_lang_model_source&#160;<span class='sym_p'>(&#160;struct xccdf_policy_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<a name='Low_Risk_Binary_Problems'></a><a name='Symbol_Binary_Problems_Low'></a><a name='Interface_Binary_Problems_Low'></a>
+<h2>Problems with Symbols, Low Severity (4)</h2><hr/>
+<span class='h_name'>oval_definitions.h</span>, <span class='lib_name'>libopenscap.so.8.3.2</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_1')">
+<span class='extendable'>[+]</span> oval_generator_set_product_name&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char* <span class='color_p'>product_name</span> )</span></span> (1)</span>
+<br/>
+<div id="c_1" style="display:none;">
+
+
+<span class='new_sign_lbl'>changed to:</span><br/><span class='new_sign'>oval_generator_set_product_name&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char const* <span class='color_p'>product_name</span> )</span></span></span><br/>
+<table class='ptable'><tr><th width='2%'></th><th width='47%'>Change</th><th>Effect</th></tr><tr><th>1</th><td align='left' valign='top'>Type of <b>2nd</b> parameter <b>product_name</b> has been changed from <b>char*</b> to <span class='value'>char const*</span>.</td><td align='left' valign='top'>Replacement of parameter data type may indicate a change in its semantic meaning.</td></tr>
+</table><br/>
+</div>
+<span class="section" onclick="javascript:showContent(this, 'c_2')">
+<span class='extendable'>[+]</span> oval_generator_set_product_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char* <span class='color_p'>product_version</span> )</span></span> (1)</span>
+<br/>
+<div id="c_2" style="display:none;">
+
+
+<span class='new_sign_lbl'>changed to:</span><br/><span class='new_sign'>oval_generator_set_product_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char const* <span class='color_p'>product_version</span> )</span></span></span><br/>
+<table class='ptable'><tr><th width='2%'></th><th width='47%'>Change</th><th>Effect</th></tr><tr><th>1</th><td align='left' valign='top'>Type of <b>2nd</b> parameter <b>product_version</b> has been changed from <b>char*</b> to <span class='value'>char const*</span>.</td><td align='left' valign='top'>Replacement of parameter data type may indicate a change in its semantic meaning.</td></tr>
+</table><br/>
+</div>
+<span class="section" onclick="javascript:showContent(this, 'c_3')">
+<span class='extendable'>[+]</span> oval_generator_set_schema_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char* <span class='color_p'>schema_version</span> )</span></span> (1)</span>
+<br/>
+<div id="c_3" style="display:none;">
+
+
+<span class='new_sign_lbl'>changed to:</span><br/><span class='new_sign'>oval_generator_set_schema_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char const* <span class='color_p'>schema_version</span> )</span></span></span><br/>
+<table class='ptable'><tr><th width='2%'></th><th width='47%'>Change</th><th>Effect</th></tr><tr><th>1</th><td align='left' valign='top'>Type of <b>2nd</b> parameter <b>schema_version</b> has been changed from <b>char*</b> to <span class='value'>char const*</span>.</td><td align='left' valign='top'>Replacement of parameter data type may indicate a change in its semantic meaning.</td></tr>
+</table><br/>
+</div>
+<span class="section" onclick="javascript:showContent(this, 'c_4')">
+<span class='extendable'>[+]</span> oval_generator_set_timestamp&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char* <span class='color_p'>timestamp</span> )</span></span> (1)</span>
+<br/>
+<div id="c_4" style="display:none;">
+
+
+<span class='new_sign_lbl'>changed to:</span><br/><span class='new_sign'>oval_generator_set_timestamp&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char const* <span class='color_p'>timestamp</span> )</span></span></span><br/>
+<table class='ptable'><tr><th width='2%'></th><th width='47%'>Change</th><th>Effect</th></tr><tr><th>1</th><td align='left' valign='top'>Type of <b>2nd</b> parameter <b>timestamp</b> has been changed from <b>char*</b> to <span class='value'>char const*</span>.</td><td align='left' valign='top'>Replacement of parameter data type may indicate a change in its semantic meaning.</td></tr>
+</table><br/>
+</div>
+<br/><a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<a name='Other_Binary_Changes'></a><a name='Other_Binary_Changes_In_Types'></a>
+<h2>Other Changes in Data Types (1)</h2><hr/>
+<span class='h_name'>oscap.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_5')">
+<span class='extendable'>[+]</span> <span class='ttype'>enum</span> oscap_document_type (1)</span>
+<br/>
+<div id="c_5" style="display:none;">
+<table class='ptable'><tr>
+<th width='2%'></th><th width='47%'>Change</th>
+<th>Effect</th></tr><tr><th>1</th><td align='left' valign='top'>The member <b>OSCAP_DOCUMENT_UNKNOWN</b> with value <b>0</b> has been added.</td><td align='left' valign='top'>No effect.</td></tr>
+</table>
+<span class="section_affected" onclick="javascript:showContent(this, 'c_6')">
+[+] affected symbols (5)</span>
+<div id="c_6" style="display:none;">
+<div class='affected'><span class='iname_a'>oscap_determine_document_type&#160;<span class='sym_p'>(&#160;char const* <span class='param'>document</span>, <span class='nowrap'>oscap_document_type_t* <span class='focus_p'>doc_type</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;doc_type&#39; (pointer) has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_document_type_to_string&#160;<span class='sym_p'>(&#160;<span class='nowrap'>oscap_document_type_t <span class='focus_p'>type</span> )</span></span></span><br/><div class='affect'>1st parameter &#39;type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_schematron_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, <span class='nowrap'>char const* <span class='param'>outfile</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, xml_reporter <span class='param'>reporter</span>, <span class='nowrap'>void* <span class='param'>arg</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oval_determine_document_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>char const* <span class='param'>p1</span>,</span> <span class='nowrap'>oscap_document_type_t <span class='focus_p'>p2</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;p2&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+</div></div>
+<br/><br/></div>
+
+<br/><a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files (28)</h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvss_score.h<br/>
+oscap.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_handler.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+oval_version.h<br/>
+scap_ds.h<br/>
+sce_engine_api.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Shared Libraries (3)</h2><hr/>
+<div class='lib_list'>
+_openscap_py.so<br/>
+libopenscap.so.8.3.2<br/>
+libopenscap_sce.so.8.3.2<br/>
+</div>
+<br/><a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><div id='SourceTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Library Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.1.1</td></tr>
+<tr><th>Version #2</th><td>master</td></tr>
+<tr><th>CPU Type</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>3.4.6</td></tr>
+<tr><th>Subject</th><td width='150px'>Source Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>28</a></td></tr>
+<tr><th>Total Shared Libraries</th><td><a href='#Libs' style='color:Blue;'>3</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>2263 / 680</td></tr>
+<tr><th>Verdict</th><td><span style='color:Green;'><b>Compatible</b></span></td></tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>50</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+<tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Source_Changes_In_Types' style='color:Blue;'>1</a></td></tr>
+</table>
+
+<a name='Source_Added'></a><h2>Added Symbols (50)</h2><hr/>
+<span class='h_name'>cpe_dict.h</span><br/>
+<span class="iname">cpe_dict_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>cpe_lang.h</span><br/>
+<span class="iname">cpe_lang_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>ds_rds_session.h</span><br/>
+<span class="iname">ds_rds_session_dump_component_files&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>rds_session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_get_html_report&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>rds_session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_get_rds_idx&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_rds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_new_from_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_replace_report_with_source&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_select_report&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>report_id</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_select_report_request&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>report_request_id</span> )</span></span></span><br/>
+<span class="iname">ds_rds_session_set_target_dir&#160;<span class='sym_p'>(&#160;struct ds_rds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>target_dir</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>ds_sds_session.h</span><br/>
+<span class="iname">ds_sds_session_dump_component_files&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>sds_session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_checklist_id&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session const* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_component_by_href&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>href</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_datastream_id&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session const* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_html_guide&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>profile_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_get_sds_idx&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_new_from_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_register_component_with_dependencies&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, char const* <span class='color_p'>container_name</span>, char const* <span class='color_p'>component_id</span>, <span class='nowrap'>char const* <span class='color_p'>target_filename</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_reset&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct ds_sds_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_select_checklist&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, char const* <span class='color_p'>datastream_id</span>, char const* <span class='color_p'>component_id</span>, <span class='nowrap'>char const* <span class='color_p'>benchmark_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_select_tailoring&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>component_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_set_datastream_id&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>datastream_id</span> )</span></span></span><br/>
+<span class="iname">ds_sds_session_set_target_dir&#160;<span class='sym_p'>(&#160;struct ds_sds_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>target_dir</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oscap_source.h</span><br/>
+<span class="iname">oscap_source_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_get_raw_memory&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>char** <span class='color_p'>buffer</span>,</span> <span class='nowrap'>size_t* <span class='color_p'>size</span> )</span></span></span><br/>
+<span class="iname">oscap_source_get_scap_type&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_get_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_new_from_file&#160;<span class='sym_p'>(&#160;<span class='nowrap'>char const* <span class='color_p'>filepath</span> )</span></span></span><br/>
+<span class="iname">oscap_source_new_from_memory&#160;<span class='sym_p'>(&#160;char const* <span class='color_p'>buffer</span>, <span class='nowrap'>size_t <span class='color_p'>size</span>,</span> <span class='nowrap'>char const* <span class='color_p'>filepath</span> )</span></span></span><br/>
+<span class="iname">oscap_source_readable_origin&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source const* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">oscap_source_save_as&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>char const* <span class='color_p'>filename</span> )</span></span></span><br/>
+<span class="iname">oscap_source_validate&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, xml_reporter <span class='color_p'>reporter</span>, <span class='nowrap'>void* <span class='color_p'>user</span> )</span></span></span><br/>
+<span class="iname">oscap_source_validate_schematron&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>char const* <span class='color_p'>outfile</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oscap_text.h</span><br/>
+<span class="iname">oscap_textlist_get_preferred_text&#160;<span class='sym_p'>(&#160;struct oscap_text_iterator* <span class='color_p'>texts</span>, <span class='nowrap'>char const* <span class='color_p'>preferred_lang</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_definitions.h</span><br/>
+<span class="iname">oval_definition_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_directives.h</span><br/>
+<span class="iname">oval_directives_model_import_source&#160;<span class='sym_p'>(&#160;struct oval_directives_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_results.h</span><br/>
+<span class="iname">oval_results_model_export_source&#160;<span class='sym_p'>(&#160;struct oval_results_model* <span class='color_p'>results_model</span>, struct oval_directives_model* <span class='color_p'>directives_model</span>, <span class='nowrap'>char const* <span class='color_p'>name</span> )</span></span></span><br/>
+<span class="iname">oval_results_model_import_source&#160;<span class='sym_p'>(&#160;struct oval_results_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_system_characteristics.h</span><br/>
+<span class="iname">oval_syschar_model_import_source&#160;<span class='sym_p'>(&#160;struct oval_syschar_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_variables.h</span><br/>
+<span class="iname">oval_variable_model_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>xccdf_benchmark.h</span><br/>
+<span class="iname">xccdf_benchmark_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_result_export_source&#160;<span class='sym_p'>(&#160;struct xccdf_result* <span class='color_p'>result</span>, <span class='nowrap'>char const* <span class='color_p'>filepath</span> )</span></span></span><br/>
+<span class="iname">xccdf_result_import_source&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_rule_result_override&#160;<span class='sym_p'>(&#160;struct xccdf_rule_result* <span class='color_p'>rule_result</span>, enum xccdf_test_result_type_t <span class='color_p'>new_result</span>, char const* <span class='color_p'>time</span>, char const* <span class='color_p'>authority</span>, <span class='nowrap'>struct oscap_text* <span class='color_p'>remark</span> )</span></span></span><br/>
+<span class="iname">xccdf_tailoring_import_source&#160;<span class='sym_p'>(&#160;struct oscap_source* <span class='color_p'>source</span>, <span class='nowrap'>struct xccdf_benchmark* <span class='color_p'>benchmark</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>xccdf_policy.h</span><br/>
+<span class="iname">xccdf_policy_model_add_cpe_autodetect_source&#160;<span class='sym_p'>(&#160;struct xccdf_policy_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_policy_model_add_cpe_dict_source&#160;<span class='sym_p'>(&#160;struct xccdf_policy_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<span class="iname">xccdf_policy_model_add_cpe_lang_model_source&#160;<span class='sym_p'>(&#160;struct xccdf_policy_model* <span class='color_p'>model</span>, <span class='nowrap'>struct oscap_source* <span class='color_p'>source</span> )</span></span></span><br/>
+<br/>
+<a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<a name='Other_Source_Changes'></a><a name='Other_Source_Changes_In_Types'></a>
+<h2>Other Changes in Data Types (1)</h2><hr/>
+<span class='h_name'>oscap.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_7')">
+<span class='extendable'>[+]</span> <span class='ttype'>enum</span> oscap_document_type (1)</span>
+<br/>
+<div id="c_7" style="display:none;">
+<table class='ptable'><tr>
+<th width='2%'></th><th width='47%'>Change</th>
+<th>Effect</th></tr><tr><th>1</th><td align='left' valign='top'>The member <b>OSCAP_DOCUMENT_UNKNOWN</b> with value <b>0</b> has been added.</td><td align='left' valign='top'>No effect.</td></tr>
+</table>
+<span class="section_affected" onclick="javascript:showContent(this, 'c_8')">
+[+] affected symbols (5)</span>
+<div id="c_8" style="display:none;">
+<div class='affected'><span class='iname_a'>oscap_determine_document_type&#160;<span class='sym_p'>(&#160;char const* <span class='param'>document</span>, <span class='nowrap'>oscap_document_type_t* <span class='focus_p'>doc_type</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;doc_type&#39; (pointer) has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_document_type_to_string&#160;<span class='sym_p'>(&#160;<span class='nowrap'>oscap_document_type_t <span class='focus_p'>type</span> )</span></span></span><br/><div class='affect'>1st parameter &#39;type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_schematron_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, <span class='nowrap'>char const* <span class='param'>outfile</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, xml_reporter <span class='param'>reporter</span>, <span class='nowrap'>void* <span class='param'>arg</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oval_determine_document_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>char const* <span class='param'>p1</span>,</span> <span class='nowrap'>oscap_document_type_t <span class='focus_p'>p2</span> )</span></span></span><br/><div class='affect'>2nd parameter &#39;p2&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+</div></div>
+<br/><br/></div>
+
+<br/><a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files (28)</h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvss_score.h<br/>
+oscap.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_handler.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+oval_version.h<br/>
+scap_ds.h<br/>
+sce_engine_api.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Shared Libraries (3)</h2><hr/>
+<div class='lib_list'>
+_openscap_py.so<br/>
+libopenscap.so.8.3.2<br/>
+libopenscap_sce.so.8.3.2<br/>
+</div>
+<br/><a style='font-size:11px;' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><div style='width:97%;padding-top:3px;font-size:11px;' align='right'><i>Generated on Tue Dec  2 09:24:05 2014 for <span style='font-weight:bold'>openscap</span> by <a href='http://ispras.linuxbase.org/index.php/ABI_compliance_checker'>ABI Compliance Checker</a> 1.99.9 &#160;<br/>A tool for checking backward compatibility of a C/C++ library API&#160;&#160;</i></div>
+<div style='height:999px;'></div>
+</body></html>
