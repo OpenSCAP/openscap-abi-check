@@ -72,5 +72,4 @@ build($new);
 create_xml($new);
 
 system("abi-compliance-checker -cross-gcc /usr/bin/g++34 -lib openscap -old $old.xml -new $new.xml");
-system("scp compat_reports/openscap/${old}_to_${new}/compat_report.html virtmaster\@sec-eng-01:public_html/${old}_${new}.html");
-print "http://sec-eng-01.lab.eng.brq.redhat.com/virtmaster/${old}_${new}.html";
+system("cp compat_reports/openscap/${old}_to_${new}/compat_report.html reports/${old}_${new}.html");
