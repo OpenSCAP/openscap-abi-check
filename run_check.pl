@@ -11,6 +11,7 @@ sub download {
 	my $version = shift;
 
 	if ($version == "master" or $version =~ /^maint-\d/) {
+		system("rm -r openscap-$version");
 		system("git clone --branch $version --single-branch https://github.com/OpenSCAP/openscap.git openscap-$version");
 	}
 	else {
