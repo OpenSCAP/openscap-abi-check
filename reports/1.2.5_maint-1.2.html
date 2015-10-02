@@ -1,5 +1,5 @@
-<!-- kind:binary;verdict:compatible;affected:0;added:23;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.10 -->
-<!-- kind:source;verdict:compatible;affected:0;added:23;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.10 -->
+<!-- kind:binary;verdict:compatible;affected:0;added:25;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.10 -->
+<!-- kind:source;verdict:compatible;affected:0;added:25;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.10 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -372,7 +372,7 @@ else if (window.attachEvent) window.attachEvent('onload', initTabs);
 <tr><th>Verdict</th><td><span style='color:Green;'><b>Compatible</b></span></td></tr>
 </table>
 <h2>Problem Summary</h2><hr/>
-<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Binary_Added' style='color:Blue;'>23</a></td></tr>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Binary_Added' style='color:Blue;'>25</a></td></tr>
 <tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
 <tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
 <tr><td>Medium</td><td>0</td></tr>
@@ -384,21 +384,23 @@ else if (window.attachEvent) window.attachEvent('onload', initTabs);
 <tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Binary_Changes_In_Types' style='color:Blue;'>1</a></td></tr>
 </table>
 
-<a name='Binary_Added'></a><h2>Added Symbols (23)</h2><hr/>
-<span class='h_name'>oval_definitions.h</span>, <span class='lib_name'>libopenscap.so.8.5.1</span><br/>
+<a name='Binary_Added'></a><h2>Added Symbols (25)</h2><hr/>
+<span class='h_name'>oval_definitions.h</span>, <span class='lib_name'>libopenscap.so.8.6.0</span><br/>
 <span class="iname">oval_generator_add_platform_schema_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, char const* <span class='color_p'>platform</span>, <span class='nowrap'>char const* <span class='color_p'>schema_version</span> )</span></span></span><br/>
 <span class="iname">oval_generator_get_core_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_generator* <span class='color_p'>generator</span> )</span></span></span><br/>
 <span class="iname">oval_generator_get_platform_schema_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char const* <span class='color_p'>platform</span> )</span></span></span><br/>
 <span class="iname">oval_generator_set_core_schema_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char const* <span class='color_p'>schema_version</span> )</span></span></span><br/>
 <span class="iname">oval_generator_update_timestamp&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_generator* <span class='color_p'>generator</span> )</span></span></span><br/>
 <span class="iname">oval_object_get_platform_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_object* <span class='color_p'>object</span> )</span></span></span><br/>
+<span class="iname">oval_state_content_get_check_existence&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_state_content* <span class='color_p'>content</span> )</span></span></span><br/>
+<span class="iname">oval_state_content_set_check_existence&#160;<span class='sym_p'>(&#160;struct oval_state_content* <span class='color_p'>content</span>, <span class='nowrap'>enum oval_existence_t <span class='color_p'>existence</span> )</span></span></span><br/>
 <br/>
-<span class='h_name'>oval_schema_version.h</span>, <span class='lib_name'>libopenscap.so.8.5.1</span><br/>
+<span class='h_name'>oval_schema_version.h</span>, <span class='lib_name'>libopenscap.so.8.6.0</span><br/>
 <span class="iname">oval_schema_version_cmp&#160;<span class='sym_p'>(&#160;struct oval_schema_version_t <span class='color_p'>v1</span>, <span class='nowrap'>struct oval_schema_version_t <span class='color_p'>v2</span> )</span></span></span><br/>
 <span class="iname">oval_schema_version_from_cstr&#160;<span class='sym_p'>(&#160;<span class='nowrap'>char const* <span class='color_p'>ver_str</span> )</span></span></span><br/>
 <span class="iname">oval_schema_version_to_cstr&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_schema_version_t <span class='color_p'>version</span> )</span></span></span><br/>
 <br/>
-<span class='h_name'>oval_session.h</span>, <span class='lib_name'>libopenscap.so.8.5.1</span><br/>
+<span class='h_name'>oval_session.h</span>, <span class='lib_name'>libopenscap.so.8.6.0</span><br/>
 <span class="iname">oval_session_evaluate&#160;<span class='sym_p'>(&#160;struct oval_session* <span class='color_p'>session</span>, char* <span class='color_p'>probe_root</span>, agent_reporter <span class='color_p'>fn</span>, <span class='nowrap'>void* <span class='color_p'>arg</span> )</span></span></span><br/>
 <span class="iname">oval_session_evaluate_id&#160;<span class='sym_p'>(&#160;struct oval_session* <span class='color_p'>session</span>, char* <span class='color_p'>probe_root</span>, <span class='nowrap'>char const* <span class='color_p'>id</span>,</span> <span class='nowrap'>enum oval_result_t* <span class='color_p'>result</span> )</span></span></span><br/>
 <span class="iname">oval_session_export&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_session* <span class='color_p'>session</span> )</span></span></span><br/>
@@ -497,7 +499,7 @@ libopenscap_sce.so.8.5.1<br/>
 <tr><th>Verdict</th><td><span style='color:Green;'><b>Compatible</b></span></td></tr>
 </table>
 <h2>Problem Summary</h2><hr/>
-<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>23</a></td></tr>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>25</a></td></tr>
 <tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
 <tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
 <tr><td>Medium</td><td>0</td></tr>
@@ -510,7 +512,7 @@ libopenscap_sce.so.8.5.1<br/>
 <tr><th>Other Changes<br/>in Constants</th><td>-</td><td class='passed'><a href='#Other_Source_Changes_In_Constants' style='color:Blue;'>1</a></td></tr>
 </table>
 
-<a name='Source_Added'></a><h2>Added Symbols (23)</h2><hr/>
+<a name='Source_Added'></a><h2>Added Symbols (25)</h2><hr/>
 <span class='h_name'>oval_definitions.h</span><br/>
 <span class="iname">oval_generator_add_platform_schema_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, char const* <span class='color_p'>platform</span>, <span class='nowrap'>char const* <span class='color_p'>schema_version</span> )</span></span></span><br/>
 <span class="iname">oval_generator_get_core_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_generator* <span class='color_p'>generator</span> )</span></span></span><br/>
@@ -518,6 +520,8 @@ libopenscap_sce.so.8.5.1<br/>
 <span class="iname">oval_generator_set_core_schema_version&#160;<span class='sym_p'>(&#160;struct oval_generator* <span class='color_p'>generator</span>, <span class='nowrap'>char const* <span class='color_p'>schema_version</span> )</span></span></span><br/>
 <span class="iname">oval_generator_update_timestamp&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_generator* <span class='color_p'>generator</span> )</span></span></span><br/>
 <span class="iname">oval_object_get_platform_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_object* <span class='color_p'>object</span> )</span></span></span><br/>
+<span class="iname">oval_state_content_get_check_existence&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_state_content* <span class='color_p'>content</span> )</span></span></span><br/>
+<span class="iname">oval_state_content_set_check_existence&#160;<span class='sym_p'>(&#160;struct oval_state_content* <span class='color_p'>content</span>, <span class='nowrap'>enum oval_existence_t <span class='color_p'>existence</span> )</span></span></span><br/>
 <br/>
 <span class='h_name'>oval_schema_version.h</span><br/>
 <span class="iname">oval_schema_version_cmp&#160;<span class='sym_p'>(&#160;struct oval_schema_version_t <span class='color_p'>v1</span>, <span class='nowrap'>struct oval_schema_version_t <span class='color_p'>v2</span> )</span></span></span><br/>
@@ -617,6 +621,6 @@ libopenscap.so.8.5.1<br/>
 libopenscap_sce.so.8.5.1<br/>
 </div>
 <br/><a class='top_ref' href='#Top'>to the top</a><br/>
-<br/><br/><br/></div><hr/><div class='footer' align='right'><i>Generated on Tue Sep 29 16:40:33 2015 by <a href='http://lvc.github.io/abi-compliance-checker/'>ABI Compliance Checker</a> 1.99.10 &#160;</i></div><br/>
+<br/><br/><br/></div><hr/><div class='footer' align='right'><i>Generated on Fri Oct  2 18:13:24 2015 by <a href='http://lvc.github.io/abi-compliance-checker/'>ABI Compliance Checker</a> 1.99.10 &#160;</i></div><br/>
 
 </body></html>
