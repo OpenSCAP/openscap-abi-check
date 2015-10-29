@@ -15,7 +15,7 @@ sub download {
 		system("git clone --branch $version --single-branch https://github.com/OpenSCAP/openscap.git openscap-$version");
 	}
 	else {
-		system("wget https://fedorahosted.org/releases/o/p/openscap/openscap-$version.tar.gz")
+		system("wget -c https://fedorahosted.org/releases/o/p/openscap/openscap-$version.tar.gz")
 			and die "can't download https://fedorahosted.org/releases/o/p/openscap/openscap-$version.tar.gz";
 
 		system("tar xfvz openscap-$version.tar.gz");
