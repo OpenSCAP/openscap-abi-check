@@ -1,5 +1,5 @@
-<!-- kind:binary;verdict:compatible;affected:0;added:1;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.13 -->
-<!-- kind:source;verdict:compatible;affected:0;added:1;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.13 -->
+<!-- kind:binary;verdict:compatible;affected:0;added:1;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;type_changes_other:1;tool_version:1.99.13 -->
+<!-- kind:source;verdict:compatible;affected:0;added:1;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;type_changes_other:1;tool_version:1.99.13 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -382,11 +382,48 @@ else if (window.attachEvent) window.attachEvent('onload', initTabs);
 <tr><td>Medium</td><td>0</td></tr>
 <tr><td>Low</td><td>0</td></tr>
 <tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+<tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Binary_Changes_In_Types' style='color:Blue;'>1</a></td></tr>
 </table>
 
 <a name='Binary_Added'></a><h2>Added Symbols (1)</h2><hr/>
 <span class='h_name'>xccdf_policy.h</span>, <span class='lib_name'>libopenscap.so.8.7.1</span><br/>
 <span class="iname">xccdf_policy_model_build_all_useful_policies&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct xccdf_policy_model* <span class='color_p'>policy_model</span> )</span></span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Other_Binary_Changes'></a><a name='Other_Binary_Changes_In_Types'></a>
+<h2>Other Changes in Data Types (1)</h2><hr/>
+<span class='h_name'>oscap.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_1')">
+<span class='extendable'>[+]</span> <span class='ttype'>enum</span> oscap_document_type (1)</span>
+<br/>
+<div id="c_1" style="display:none;">
+<table class='ptable'><tr>
+<th width='2%'></th><th width='47%'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td align='left' valign='top'>The member <b>OSCAP_DOCUMENT_OCIL</b> with value <b>14</b> has been added.</td>
+<td align='left' valign='top'>No effect.</td>
+</tr>
+</table>
+<span class="section_affected" onclick="javascript:showContent(this, 'c_2')">
+[+] affected symbols (6)</span>
+<div id="c_2" style="display:none;">
+<div class='affected'><span class='iname_a'>oscap_determine_document_type&#160;<span class='sym_p'>(&#160;char const* <span class='param'>document</span>, <span class='nowrap'>oscap_document_type_t* <span class='focus_p'>doc_type</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;doc_type&#39; (pointer) has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_document_type_to_string&#160;<span class='sym_p'>(&#160;<span class='nowrap'>oscap_document_type_t <span class='focus_p'>type</span> )</span></span></span><br/>
+<div class='affect'>1st parameter &#39;type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_schematron_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, <span class='nowrap'>char const* <span class='param'>outfile</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_source_get_scap_type&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='param'>source</span> )</span></span></span><br/>
+<div class='affect'>Return value has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, xml_reporter <span class='param'>reporter</span>, <span class='nowrap'>void* <span class='param'>arg</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oval_determine_document_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>char const* <span class='param'>p1</span>,</span> <span class='nowrap'>oscap_document_type_t <span class='focus_p'>p2</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;p2&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
 <br/>
 <a class='top_ref' href='#Top'>to the top</a><br/>
 <a name='Headers'></a><h2>Header Files (34)</h2><hr/>
@@ -460,11 +497,48 @@ libopenscap_sce.so.8.7.1<br/>
 <tr><td>Medium</td><td>0</td></tr>
 <tr><td>Low</td><td>0</td></tr>
 <tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+<tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Source_Changes_In_Types' style='color:Blue;'>1</a></td></tr>
 </table>
 
 <a name='Source_Added'></a><h2>Added Symbols (1)</h2><hr/>
 <span class='h_name'>xccdf_policy.h</span><br/>
 <span class="iname">xccdf_policy_model_build_all_useful_policies&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct xccdf_policy_model* <span class='color_p'>policy_model</span> )</span></span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Other_Source_Changes'></a><a name='Other_Source_Changes_In_Types'></a>
+<h2>Other Changes in Data Types (1)</h2><hr/>
+<span class='h_name'>oscap.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_3')">
+<span class='extendable'>[+]</span> <span class='ttype'>enum</span> oscap_document_type (1)</span>
+<br/>
+<div id="c_3" style="display:none;">
+<table class='ptable'><tr>
+<th width='2%'></th><th width='47%'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td align='left' valign='top'>The member <b>OSCAP_DOCUMENT_OCIL</b> with value <b>14</b> has been added.</td>
+<td align='left' valign='top'>No effect.</td>
+</tr>
+</table>
+<span class="section_affected" onclick="javascript:showContent(this, 'c_4')">
+[+] affected symbols (6)</span>
+<div id="c_4" style="display:none;">
+<div class='affected'><span class='iname_a'>oscap_determine_document_type&#160;<span class='sym_p'>(&#160;char const* <span class='param'>document</span>, <span class='nowrap'>oscap_document_type_t* <span class='focus_p'>doc_type</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;doc_type&#39; (pointer) has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_document_type_to_string&#160;<span class='sym_p'>(&#160;<span class='nowrap'>oscap_document_type_t <span class='focus_p'>type</span> )</span></span></span><br/>
+<div class='affect'>1st parameter &#39;type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_schematron_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, <span class='nowrap'>char const* <span class='param'>outfile</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_source_get_scap_type&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oscap_source* <span class='param'>source</span> )</span></span></span><br/>
+<div class='affect'>Return value has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_validate_document&#160;<span class='sym_p'>(&#160;char const* <span class='param'>xmlfile</span>, oscap_document_type_t <span class='focus_p'>doctype</span>, char const* <span class='param'>version</span>, xml_reporter <span class='param'>reporter</span>, <span class='nowrap'>void* <span class='param'>arg</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oval_determine_document_schema_version&#160;<span class='sym_p'>(&#160;<span class='nowrap'>char const* <span class='param'>p1</span>,</span> <span class='nowrap'>oscap_document_type_t <span class='focus_p'>p2</span> )</span></span></span><br/>
+<div class='affect'>2nd parameter &#39;p2&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
 <br/>
 <a class='top_ref' href='#Top'>to the top</a><br/>
 <a name='Headers'></a><h2>Header Files (34)</h2><hr/>
@@ -512,6 +586,6 @@ libopenscap.so.8.7.1<br/>
 libopenscap_sce.so.8.7.1<br/>
 </div>
 <br/><a class='top_ref' href='#Top'>to the top</a><br/>
-<br/><br/><br/></div><hr/><div class='footer' align='right'><i>Generated on Thu Apr 21 15:11:20 2016 by <a href='http://lvc.github.io/abi-compliance-checker/'>ABI Compliance Checker</a> 1.99.13 &#160;</i></div><br/>
+<br/><br/><br/></div><hr/><div class='footer' align='right'><i>Generated on Fri Apr 22 14:55:07 2016 by <a href='http://lvc.github.io/abi-compliance-checker/'>ABI Compliance Checker</a> 1.99.13 &#160;</i></div><br/>
 
 </body></html>
