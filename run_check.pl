@@ -29,14 +29,10 @@ sub build {
 	mkdir $version;
 	chdir "openscap-$version";
 
-	my $configure = `rpm --eval %configure`;
-	chomp $configure;
-
-	$configure =~ s/(\/usr|\/var|\/etc)/$root\/$version/g;
 	if ($version == "master") {
 		system("./autogen.sh");
 	}
-	system("$configure --enable-sce; make install" );
+	system("./configure --prefix $root/$version --enable-sce; make install" );
 
 	chdir "..";
 }
