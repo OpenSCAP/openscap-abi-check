@@ -1,0 +1,548 @@
+<!-- kind:binary;verdict:compatible;affected:0;added:0;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.20 -->
+<!-- kind:source;verdict:compatible;affected:0;added:31;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;tool_version:1.99.20 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="openscap, compatibility, API, ABI, report" />
+<meta name="description" content="API/ABI compatibility report for the openscap library between 1.2.14 and maint-1.2 versions" />
+<title>openscap: 1.2.14 to maint-1.2 compatibility report</title>
+<style type="text/css">
+body {
+    font-family:Arial, sans-serif;
+    background-color:White;
+    color:Black;
+}
+hr {
+    color:Black;
+    background-color:Black;
+    height:1px;
+    border:0;
+}
+h1 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.625em;
+}
+h2 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.25em;
+    white-space:nowrap;
+}
+span.section {
+    font-weight:bold;
+    cursor:pointer;
+    color:#003E69;
+    white-space:nowrap;
+    margin-left:5px;
+}
+span.new_sign {
+    font-weight:bold;
+    margin-left:26px;
+    color:#003E69;
+}
+span.new_sign_lbl {
+    margin-left:28px;
+    font-size:0.875em;
+    color:Black;
+}
+span:hover.section {
+    color:#336699;
+}
+span.sect_aff {
+    cursor:pointer;
+    margin-left:7px;
+    padding-left:15px;
+    font-size:0.875em;
+    color:#cc3300;
+}
+span.sect_info {
+    cursor:pointer;
+    margin-left:7px;
+    padding-left:15px;
+    font-size:0.875em;
+    color:Black;
+}
+span.ext {
+    font-weight:100;
+}
+span.h_name {
+    color:#cc3300;
+    font-size:0.875em;
+    font-weight:bold;
+}
+div.h_list, div.lib_list {
+    font-size:0.94em;
+    padding-left:5px;
+}
+span.ns {
+    color:#408080;
+    font-size:0.94em;
+}
+span.lib_name {
+    color:Green;
+    font-size:0.875em;
+    font-weight:bold;
+}
+span.iname {
+    font-weight:bold;
+    color:#003E69;
+    margin-left:5px;
+}
+span.iname_b {
+    font-weight:bold;
+    font-size:1.1em;
+}
+span.iname_a {
+    color:#333333;
+    font-weight:bold;
+    font-size:0.94em;
+}
+span.sym_p {
+    font-weight:normal;
+    white-space:normal;
+}
+div.affect {
+    padding-left:15px;
+    padding-bottom:10px;
+    font-size:0.87em;
+    font-style:italic;
+    line-height:0.75em;
+}
+div.affected {
+    padding-left:30px;
+    padding-top:10px;
+}
+table.ptable {
+    border-collapse:collapse;
+    border:1px outset black;
+    line-height:1em;
+    margin-left:15px;
+    margin-top:3px;
+    margin-bottom:3px;
+    width:900px;
+    
+}
+table.ptable td {
+    border:1px solid gray;
+    padding: 3px;
+    font-size:0.875em;
+    text-align:left;
+    vertical-align:top;
+}
+table.vtable {
+    border-collapse:collapse;
+    border:1px outset black;
+    line-height:16px;
+    margin-left:30px;
+    margin-top:10px;
+}
+table.vtable td {
+    border:1px solid gray;
+    word-wrap:break-word;
+    padding: 3px;
+    font-size:0.875em;
+    max-width:450px;
+    vertical-align:top;
+}
+table.ptable th, table.vtable th {
+    background-color:#eeeeee;
+    font-weight:bold;
+    color:#333333;
+    font-family:Verdana, Arial;
+    font-size:0.81em;
+    border:1px solid gray;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    padding: 3px;
+}
+table.summary {
+    border-collapse:collapse;
+    border:1px outset black;
+}
+table.summary th {
+    background-color:#eeeeee;
+    font-weight:100;
+    text-align:left;
+    font-size:0.94em;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding: 3px;
+}
+table.summary td {
+    text-align:right;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding: 3px 5px 3px 10px;
+}
+span.mangled {
+    padding-left:15px;
+    font-size:0.875em;
+    cursor:text;
+    color:#444444;
+}
+span.sym_ver {
+    color:#333333;
+    white-space:nowrap;
+    font-family:"DejaVu Sans Mono", Monospace;
+}
+span.attr {
+    color:#333333;
+    font-weight:100;
+}
+span.color_p {
+    font-style:italic;
+    color:Brown;
+}
+span.p {
+    font-style:italic;
+}
+span.fp {
+    font-style:italic;
+    background-color:#FFCCCC;
+}
+span.ttype {
+    font-weight:100;
+}
+span.nowrap {
+    white-space:nowrap;
+}
+span.value {
+    white-space:nowrap;
+    font-weight:bold;
+}
+td.passed {
+    background-color:#CCFFCC;
+}
+td.warning {
+    background-color:#F4F4AF;
+}
+td.failed {
+    background-color:#FFCCCC;
+}
+td.new {
+    background-color:#C6DEFF;
+}
+.top_ref {
+    font-size:0.69em;
+}
+.footer {
+    font-size:0.75em;
+}
+
+.tabset {
+    float:left;
+}
+a.tab {
+    border:1px solid Black;
+    float:left;
+    margin:0px 5px -1px 0px;
+    padding:3px 5px 3px 5px;
+    position:relative;
+    font-size:0.875em;
+    background-color:#DDD;
+    text-decoration:none;
+    color:Black;
+}
+a.disabled:hover
+{
+    color:Black;
+    background:#EEE;
+}
+a.active:hover
+{
+    color:Black;
+    background:White;
+}
+a.active {
+    border-bottom-color:White;
+    background-color:White;
+}
+div.tab {
+    border-top:1px solid Black;
+    padding:0px;
+    width:100%;
+    clear:both;
+}
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+function showContent(header, id)
+{
+    e = document.getElementById(id);
+    if(e.style.display == 'none')
+    {
+        e.style.display = 'block';
+        e.style.visibility = 'visible';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[&minus;]");
+    }
+    else
+    {
+        e.style.display = 'none';
+        e.style.visibility = 'hidden';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[+]");
+    }
+}
+function initTabs()
+{
+    var url = window.location.href;
+    if(url.indexOf('_Source_')!=-1 || url.indexOf('#Source')!=-1)
+    {
+        var tab1 = document.getElementById('BinaryID');
+        var tab2 = document.getElementById('SourceID');
+        tab1.className='tab disabled';
+        tab2.className='tab active';
+    }
+    var sets = document.getElementsByTagName('div');
+    for (var i = 0; i < sets.length; i++)
+    {
+        if (sets[i].className.indexOf('tabset') != -1)
+        {
+            var tabs = [];
+            var links = sets[i].getElementsByTagName('a');
+            for (var j = 0; j < links.length; j++)
+            {
+                if (links[j].className.indexOf('tab') != -1)
+                {
+                    tabs.push(links[j]);
+                    links[j].tabs = tabs;
+                    var tab = document.getElementById(links[j].href.substr(links[j].href.indexOf('#') + 1));
+                    //reset all tabs on start
+                    if (tab)
+                    {
+                        if (links[j].className.indexOf('active')!=-1) {
+                            tab.style.display = 'block';
+                        }
+                        else {
+                            tab.style.display = 'none';
+                        }
+                    }
+                    links[j].onclick = function()
+                    {
+                        var tab = document.getElementById(this.href.substr(this.href.indexOf('#') + 1));
+                        if (tab)
+                        {
+                            //reset all tabs before change
+                            for (var k = 0; k < this.tabs.length; k++)
+                            {
+                                document.getElementById(this.tabs[k].href.substr(this.tabs[k].href.indexOf('#') + 1)).style.display = 'none';
+                                this.tabs[k].className = this.tabs[k].className.replace('active', 'disabled');
+                            }
+                            this.className = 'tab active';
+                            tab.style.display = 'block';
+                            // window.location.hash = this.id.replace('ID', '');
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(url.indexOf('#')!=-1) {
+        location.href=location.href;
+    }
+}
+if (window.addEventListener) window.addEventListener('load', initTabs, false);
+else if (window.attachEvent) window.attachEvent('onload', initTabs);
+-->
+</script>
+</head>
+<body><a name='Source'></a><a name='Binary'></a><a name='Top'></a><h1>API compatibility report for the <span style='color:Blue;'>openscap</span> library between <span style='color:Red;'>1.2.14</span> and <span style='color:Red;'>maint-1.2</span> versions on <span style='color:Blue;'>x86_64</span></h1>
+
+            <br/>
+            <div class='tabset'>
+            <a id='BinaryID' href='#BinaryTab' class='tab active'>Binary<br/>Compatibility</a>
+            <a id='SourceID' href='#SourceTab' style='margin-left:3px' class='tab disabled'>Source<br/>Compatibility</a>
+            </div><div id='BinaryTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Library Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.2.14</td></tr>
+<tr><th>Version #2</th><td>maint-1.2</td></tr>
+<tr><th>CPU Type</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>3.4.6</td></tr>
+<tr><th>Subject</th><td width='150px'>Binary Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>35</a></td></tr>
+<tr><th>Total Shared Libraries</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>3 / 4</td></tr>
+<tr><th>Verdict</th><td><span style='color:Green;'><b>Compatible</b></span></td></tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td>0</td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+</table>
+
+<a name='Headers'></a><h2>Header Files (35)</h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvss_score.h<br/>
+ds_rds_session.h<br/>
+ds_sds_session.h<br/>
+oscap.h<br/>
+oscap_debug.h<br/>
+oscap_download_cb.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_source.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_handler.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_schema_version.h<br/>
+oval_session.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+oval_version.h<br/>
+scap_ds.h<br/>
+sce_engine_api.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Shared Libraries (1)</h2><hr/>
+<div class='lib_list'>
+_openscap_py.so<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><div id='SourceTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Library Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.2.14</td></tr>
+<tr><th>Version #2</th><td>maint-1.2</td></tr>
+<tr><th>CPU Type</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>3.4.6</td></tr>
+<tr><th>Subject</th><td width='150px'>Source Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>35</a></td></tr>
+<tr><th>Total Shared Libraries</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>2376 / 699</td></tr>
+<tr><th>Verdict</th><td><span style='color:Green;'><b>Compatible</b></span></td></tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>31</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+</table>
+
+<a name='Source_Added'></a><h2>Added Symbols (31)</h2><hr/>
+<span class='h_name'>cpe_dict.h</span><br/>
+<span class="iname">cpe_dict_model_add_item&#160;<span class='sym_p'>(&#160;struct cpe_dict_model* <span class='color_p'>dict</span>, <span class='nowrap'>struct cpe_item* <span class='color_p'>new_item</span> )</span></span></span><br/>
+<span class="iname">cpe_item_set_deprecated_by&#160;<span class='sym_p'>(&#160;struct cpe_item* <span class='color_p'>item</span>, <span class='nowrap'>struct cpe_name const* <span class='color_p'>new_deprecated_by</span> )</span></span></span><br/>
+<span class="iname">cpe_item_set_name&#160;<span class='sym_p'>(&#160;struct cpe_item* <span class='color_p'>item</span>, <span class='nowrap'>struct cpe_name const* <span class='color_p'>new_name</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>oval_definitions.h</span><br/>
+<span class="iname">oval_object_content_get_filter&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_object_content* <span class='color_p'>content</span> )</span></span></span><br/>
+<span class="iname">oval_object_content_set_filter&#160;<span class='sym_p'>(&#160;struct oval_object_content* <span class='color_p'>p1</span>, <span class='nowrap'>struct oval_filter* <span class='color_p'>p2</span> )</span></span></span><br/>
+<span class="iname">oval_variable_get_possible_restrictions2&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable* <span class='color_p'>variable</span> )</span></span></span><br/>
+<span class="iname">oval_variable_get_possible_values2&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable* <span class='color_p'>variable</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_restriction_get_hint&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_restriction* <span class='color_p'>possible_restriction</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_restriction_get_restrictions2&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_restriction* <span class='color_p'>possible_restriction</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_restriction_iterator_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_restriction_iterator* <span class='color_p'>iter</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_restriction_iterator_has_more&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_restriction_iterator* <span class='color_p'>iter</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_restriction_iterator_next&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_restriction_iterator* <span class='color_p'>iter</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_restriction_iterator_remaining&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_restriction_iterator* <span class='color_p'>iter</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_value_get_hint&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_value* <span class='color_p'>pv</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_value_get_value&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_value* <span class='color_p'>pv</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_value_iterator_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_value_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_value_iterator_has_more&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_value_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_value_iterator_next&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_value_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<span class="iname">oval_variable_possible_value_iterator_remaining&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_possible_value_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<span class="iname">oval_variable_restriction_get_operation&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_restriction* <span class='color_p'>restriction</span> )</span></span></span><br/>
+<span class="iname">oval_variable_restriction_get_value&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_restriction* <span class='color_p'>restriction</span> )</span></span></span><br/>
+<span class="iname">oval_variable_restriction_iterator_free&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_restriction_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<span class="iname">oval_variable_restriction_iterator_has_more&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_restriction_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<span class="iname">oval_variable_restriction_iterator_next&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_restriction_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<span class="iname">oval_variable_restriction_iterator_remaining&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct oval_variable_restriction_iterator* <span class='color_p'>p1</span> )</span></span></span><br/>
+<br/>
+<span class='h_name'>xccdf_benchmark.h</span><br/>
+<span class="iname">xccdf_benchmark_export_source&#160;<span class='sym_p'>(&#160;struct xccdf_benchmark* <span class='color_p'>benchmark</span>, <span class='nowrap'>char const* <span class='color_p'>filename</span> )</span></span></span><br/>
+<span class="iname">xccdf_benchmark_supported_schema_version&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>xccdf_session.h</span><br/>
+<span class="iname">xccdf_session_get_result_id&#160;<span class='sym_p'>(&#160;<span class='nowrap'>struct xccdf_session* <span class='color_p'>session</span> )</span></span></span><br/>
+<span class="iname">xccdf_session_set_loading_flags&#160;<span class='sym_p'>(&#160;struct xccdf_session* <span class='color_p'>session</span>, <span class='nowrap'>enum xccdf_session_loading_flags_t <span class='color_p'>flags</span> )</span></span></span><br/>
+<span class="iname">xccdf_session_set_profile_id_by_suffix&#160;<span class='sym_p'>(&#160;struct xccdf_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>profile_suffix</span> )</span></span></span><br/>
+<span class="iname">xccdf_session_set_rule&#160;<span class='sym_p'>(&#160;struct xccdf_session* <span class='color_p'>session</span>, <span class='nowrap'>char const* <span class='color_p'>rule</span> )</span></span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files (35)</h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvss_score.h<br/>
+ds_rds_session.h<br/>
+ds_sds_session.h<br/>
+oscap.h<br/>
+oscap_debug.h<br/>
+oscap_download_cb.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_source.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_handler.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_schema_version.h<br/>
+oval_session.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+oval_version.h<br/>
+scap_ds.h<br/>
+sce_engine_api.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Shared Libraries (1)</h2><hr/>
+<div class='lib_list'>
+_openscap_py.so<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><hr/>
+<div class='footer' align='right'><i>Generated by <a href='http://lvc.github.io/abi-compliance-checker/'>ABI Compliance Checker</a> 1.99.20 &#160;</i>
+</div>
+<br/>
+
+</body></html>
