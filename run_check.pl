@@ -32,43 +32,26 @@ sub build {
 	if ($version == "master") {
 		system("./autogen.sh");
 	}
-	system("./configure --prefix $root/$version --enable-sce; make install" );
+	system("./configure --prefix $root/$version --enable-sce CFLAGS='-g -Og -fpermissive -w'; make install" );
 
 	chdir "..";
 }
 
-sub create_xml {
+sub dump_abi {
 	my $version = shift;
 
-	my $xml = "
-<version>
-    $version
-</version>
-<headers>
-    $root/$version/include/openscap/
-</headers>
-<include_paths>
-    $root/$version/include/openscap/
-</include_paths>
-<libs>
-    $root/$version/lib64/
-</libs>
-";
-
-	open my $f, ">", "$version.xml";
-	print $f $xml;
-	close(f);
+	system ("abi-dumper $version/lib/libopenscap.so -public-headers $version/include/openscap -lver $version -o $version.dump");
 }
 
 download($old);
 build($old);
-create_xml($old);
+dump_abi($old);
 
 download($new);
 build($new);
-create_xml($new);
+dump_abi($new);
 
-system("abi-compliance-checker -cross-gcc /usr/bin/g++34 -lib openscap -old $old.xml -new $new.xml");
+system("abi-compliance-checker -lib openscap -old $old.dump -new $new.dump");
 system("cp compat_reports/openscap/${old}_to_${new}/compat_report.html reports/${old}_${new}.html");
 system("firefox reports/${old}_${new}.html");
 system("git add reports/${old}_${new}.html");
