@@ -1,0 +1,1441 @@
+<!-- kind:binary;verdict:compatible;affected:0;added:311;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;type_changes_other:1;tool_version:2.1 -->
+<!-- kind:source;verdict:compatible;affected:0;added:311;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:0;changed_constants:0;type_changes_other:1;tool_version:2.1 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="openscap, compatibility, API, ABI, report" />
+<meta name="description" content="API/ABI compatibility report for the openscap object between 1.2.15 and maint-1.2 versions" />
+<title>openscap: 1.2.15 to maint-1.2 compatibility report</title>
+<style type="text/css">
+body {
+    font-family:Arial, sans-serif;
+    background-color:White;
+    color:Black;
+}
+hr {
+    color:Black;
+    background-color:Black;
+    height:1px;
+    border:0;
+}
+h1 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.625em;
+}
+h2 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.25em;
+    white-space:nowrap;
+}
+span.section {
+    font-weight:bold;
+    cursor:pointer;
+    color:#003E69;
+    white-space:nowrap;
+    margin-left:0.3125em;
+}
+span.new_sign {
+    font-weight:bold;
+    margin-left:1.65em;
+    color:#003E69;
+}
+span.new_sign_lbl {
+    margin-left:3em;
+    font-size:1em;
+    color:Black;
+}
+span:hover.section {
+    color:#336699;
+}
+span.sect_aff {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:#cc3300;
+}
+span.sect_info {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:Black;
+}
+span.ext {
+    font-weight:100;
+}
+span.h_name {
+    color:#cc3300;
+    font-size:0.875em;
+    font-weight:bold;
+}
+div.h_list, div.lib_list {
+    font-size:0.94em;
+    padding-left:0.4em;
+}
+span.ns {
+    color:#408080;
+    font-size:0.94em;
+}
+span.lib_name {
+    color:Green;
+    font-size:0.875em;
+    font-weight:bold;
+}
+span.iname {
+    font-weight:bold;
+    color:#003E69;
+    margin-left:0.3125em;
+}
+span.iname_b {
+    font-weight:bold;
+}
+span.iname_a {
+    color:#333333;
+    font-weight:bold;
+    font-size:0.94em;
+}
+span.sym_p {
+    font-weight:normal;
+    white-space:normal;
+}
+span.sym_pd {
+    white-space:normal;
+}
+span.sym_p span, span.sym_pd span {
+    white-space:nowrap;
+}
+div.affect {
+    padding-left:1em;
+    padding-bottom:10px;
+    font-size:0.87em;
+    font-style:italic;
+    line-height:0.9em;
+}
+div.affected {
+    padding-left:1.9em;
+    padding-top:10px;
+}
+table.ptable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:0.95em;
+    margin-top:3px;
+    margin-bottom:3px;
+    width:56.25em;
+}
+table.ptable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    text-align:left;
+    vertical-align:top;
+    max-width:28em;
+    word-wrap:break-word;
+}
+table.ptable th.pn {
+    width:2%;
+}
+table.ptable th.chg {
+    width:47%;
+}
+table.vtable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:1.9em;
+    margin-top:0.7em;
+}
+table.vtable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    vertical-align:top;
+    max-width:450px;
+    word-wrap:break-word;
+}
+table.ptable th, table.vtable th {
+    background-color:#eeeeee;
+    font-weight:bold;
+    color:#333333;
+    font-family:Verdana, Arial;
+    font-size:0.875em;
+    border:1px solid gray;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    padding:3px;
+}
+table.summary {
+    border-collapse:collapse;
+    border:1px outset black;
+}
+table.summary th {
+    background-color:#eeeeee;
+    font-weight:100;
+    text-align:left;
+    font-size:0.94em;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px;
+}
+table.summary td {
+    text-align:right;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px 5px 3px 10px;
+}
+span.mngl {
+    padding-left:1em;
+    font-size:0.875em;
+    cursor:text;
+    color:#444444;
+    font-weight:bold;
+}
+span.pleft {
+    padding-left:2.5em;
+}
+span.sym_ver {
+    color:#333333;
+    white-space:nowrap;
+    font-family:"DejaVu Sans Mono", Monospace;
+}
+span.attr {
+    color:#333333;
+    font-weight:100;
+}
+span.color_p {
+    font-style:italic;
+    color:Brown;
+}
+span.p {
+    font-style:italic;
+}
+span.fp {
+    font-style:italic;
+    background-color:#DCDCDC;
+}
+span.ttype {
+    font-weight:100;
+}
+span.nowrap {
+    white-space:nowrap;
+}
+span.value {
+    font-weight:bold;
+}
+.passed {
+    background-color:#CCFFCC;
+    font-weight:100;
+}
+.warning {
+    background-color:#F4F4AF;
+    font-weight:100;
+}
+.failed {
+    background-color:#FFCCCC;
+    font-weight:100;
+}
+.new {
+    background-color:#C6DEFF;
+    font-weight:100;
+}
+.compatible {
+    background-color:#CCFFCC;
+    font-weight:100;
+}
+.almost_compatible {
+    background-color:#FFDAA3;
+    font-weight:100;
+}
+.incompatible {
+    background-color:#FFCCCC;
+    font-weight:100;
+}
+.gray {
+    background-color:#DCDCDC;
+    font-weight:100;
+}
+.top_ref {
+    font-size:0.69em;
+}
+.footer {
+    font-size:0.75em;
+}
+
+.tabset {
+    float:left;
+}
+a.tab {
+    border:1px solid Black;
+    float:left;
+    margin:0px 5px -1px 0px;
+    padding:3px 5px 3px 5px;
+    position:relative;
+    font-size:0.875em;
+    background-color:#DDD;
+    text-decoration:none;
+    color:Black;
+}
+a.disabled:hover
+{
+    color:Black;
+    background:#EEE;
+}
+a.active:hover
+{
+    color:Black;
+    background:White;
+}
+a.active {
+    border-bottom-color:White;
+    background-color:White;
+}
+div.tab {
+    border-top:1px solid Black;
+    padding:0px;
+    width:100%;
+    clear:both;
+}
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+function showContent(header, id)
+{
+    e = document.getElementById(id);
+    if(e.style.display == 'none')
+    {
+        e.style.display = 'block';
+        e.style.visibility = 'visible';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[&minus;]");
+    }
+    else
+    {
+        e.style.display = 'none';
+        e.style.visibility = 'hidden';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[+]");
+    }
+}
+function initTabs()
+{
+    var url = window.location.href;
+    if(url.indexOf('_Source_')!=-1 || url.indexOf('#Source')!=-1)
+    {
+        var tab1 = document.getElementById('BinaryID');
+        var tab2 = document.getElementById('SourceID');
+        tab1.className='tab disabled';
+        tab2.className='tab active';
+    }
+    var sets = document.getElementsByTagName('div');
+    for (var i = 0; i < sets.length; i++)
+    {
+        if (sets[i].className.indexOf('tabset') != -1)
+        {
+            var tabs = [];
+            var links = sets[i].getElementsByTagName('a');
+            for (var j = 0; j < links.length; j++)
+            {
+                if (links[j].className.indexOf('tab') != -1)
+                {
+                    tabs.push(links[j]);
+                    links[j].tabs = tabs;
+                    var tab = document.getElementById(links[j].href.substr(links[j].href.indexOf('#') + 1));
+                    //reset all tabs on start
+                    if (tab)
+                    {
+                        if (links[j].className.indexOf('active')!=-1) {
+                            tab.style.display = 'block';
+                        }
+                        else {
+                            tab.style.display = 'none';
+                        }
+                    }
+                    links[j].onclick = function()
+                    {
+                        var tab = document.getElementById(this.href.substr(this.href.indexOf('#') + 1));
+                        if (tab)
+                        {
+                            //reset all tabs before change
+                            for (var k = 0; k < this.tabs.length; k++)
+                            {
+                                document.getElementById(this.tabs[k].href.substr(this.tabs[k].href.indexOf('#') + 1)).style.display = 'none';
+                                this.tabs[k].className = this.tabs[k].className.replace('active', 'disabled');
+                            }
+                            this.className = 'tab active';
+                            tab.style.display = 'block';
+                            // window.location.hash = this.id.replace('ID', '');
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(url.indexOf('#')!=-1) {
+        location.href=location.href;
+    }
+}
+if (window.addEventListener) window.addEventListener('load', initTabs, false);
+else if (window.attachEvent) window.attachEvent('onload', initTabs);
+-->
+</script>
+</head>
+<body><a name='Source'></a><a name='Binary'></a><a name='Top'></a><h1>API compatibility report for the <span style='color:Blue;'>libopenscap.so</span> object between <span style='color:Red;'>1.2.15</span> and <span style='color:Red;'>maint-1.2</span> versions on <span style='color:Blue;'>x86_64</span></h1>
+
+            <br/>
+            <div class='tabset'>
+            <a id='BinaryID' href='#BinaryTab' class='tab active'>Binary<br/>Compatibility</a>
+            <a id='SourceID' href='#SourceTab' style='margin-left:3px' class='tab disabled'>Source<br/>Compatibility</a>
+            </div><div id='BinaryTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Module Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.2.15</td></tr>
+<tr><th>Version #2</th><td>maint-1.2</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>7.2.1</td></tr>
+<tr><th>Subject</th><td width='150px'>Binary Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>34</a></td></tr>
+<tr><th>Total Source Files</th><td><a href='#Sources' style='color:Blue;'>89</a></td></tr>
+<tr><th>Total Objects</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>2371 / 175</td></tr>
+<tr><th>Compatibility</th>
+<td class='compatible'>100%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Binary_Added' style='color:Blue;'>311</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+<tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Binary_Changes_In_Types' style='color:Blue;'>1</a></td></tr>
+</table>
+
+<a name='Binary_Added'></a><h2>Added Symbols <span class='new'>&nbsp;311&nbsp;</span></h2><hr/>
+<span class='h_name'>cvrf.h</span>, <span class='lib_name'>libopenscap.so.8.13.0</span><br/>
+<span class="iname">cvrf_acknowledgment_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_names&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_organizations&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_urls&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch const* <span class='color_p'>branch</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>branch</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_get_branch_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_get_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_get_subbranches&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>branch</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_set_branch_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_set_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_name* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>publisher</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>publisher</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_get_contact_details&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_get_issuing_authority&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_get_vendor_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_set_contact_details&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_set_issuing_authority&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_set_vendor_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_add_revision&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>struct cvrf_revision* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>tracking</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>tracking</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_aliases&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>tracking</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_cur_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_generator_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_generator_engine&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_init_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_revision_history&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_tracking_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_version&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_cur_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_generator_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_generator_engine&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_init_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_tracking_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_version&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_acknowledgments&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_aggregate_severity&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_doc_distribution&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_namespace&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_notes&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_publisher&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_references&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_tracking&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_aggregate_severity&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_doc_distribution&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_namespace&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_publisher&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>struct cvrf_doc_publisher* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_tracking&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>struct cvrf_doc_tracking* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_group const* <span class='color_p'>group</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>group</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_group const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_get_group_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_group const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>group</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_group_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_set_group_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_add_model&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>obj</span></span>, <span>struct cvrf_model* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>index</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>index</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_export_source&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>index</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_index_file&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_models&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_results_source&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>import_source</span></span>, <span>char const* <span class='color_p'>os_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_source_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_import&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>index_source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_index_set_index_file&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_set_source_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement const* <span class='color_p'>involve</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement* <span class='color_p'>involve</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_add_vulnerability&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>struct cvrf_vulnerability* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_filter_by_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>, <span>char const* <span class='color_p'>cpe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>cvrf</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_doc_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_doc_type&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_document&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_export_source&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_identification&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_product_tree&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_results_source&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>import_source</span></span>, <span>char const* <span class='color_p'>os_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_vulnerabilities&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_import&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_model_set_doc_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_set_doc_type&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_set_document&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>struct cvrf_document* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_supported&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_note_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>note</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>note</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_audience&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_contents&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_audience&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_contents&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>int <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name const* <span class='color_p'>full_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name* <span class='color_p'>full_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_get_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_get_product_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_set_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_set_product_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status const* <span class='color_p'>stat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status* <span class='color_p'>status</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_get_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status* <span class='color_p'>stat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_add_group&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>obj</span></span>, <span>struct cvrf_group* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_add_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_name* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_add_relationship&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>obj</span></span>, <span>struct cvrf_relationship* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>tree</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_filter_by_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>, <span>char const* <span class='color_p'>cpe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_branches&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_product_groups&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_product_names&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_relationships&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference const* <span class='color_p'>ref</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference* <span class='color_p'>ref</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_get_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_set_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>relation</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>relationship</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_get_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_get_product_reference&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_get_relates_to_ref&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_set_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_name* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_set_product_reference&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_set_relates_to_ref&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_entitlement&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_group_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_entitlement&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>revision</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>revision</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_get_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_get_number&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_set_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_set_number&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>attributes</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_get_evr_format&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_get_full_package_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_get_rpm_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_set_evr_format&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_set_full_package_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_set_rpm_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_add_metric&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>score_set</span></span>, <span>enum cvss_category <span class='color_p'>category</span></span>, <span>char const* <span class='color_p'>score</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_base_score&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_environmental_score&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_impact&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_temporal_score&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_vector&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_set_impact&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>obj</span></span>, <span>struct cvss_impact* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_set_vector&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_index&#160;<span class='sym_p'><span>(&#160;struct cvrf_session const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_model&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_os_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_session const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_new_from_source_index&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_new_from_source_model&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_set_index&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>obj</span></span>, <span>struct cvrf_index* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_set_model&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>, <span>struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_set_os_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat const* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_group_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_set_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_cvrf_product_status&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_status* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_involvement&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_involvement* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_remediation&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_remediation* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_score_set&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_score_set* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_threat&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_threat* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe const* <span class='color_p'>vuln_cwe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe* <span class='color_p'>vuln_cwe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_get_cwe&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_get_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_set_cwe&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_set_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_filter_by_product&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>, <span>char const* <span class='color_p'>prod</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vulnerability</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_acknowledgments&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_cve_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_discovery_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_involvements&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_notes&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_product_statuses&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_references&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_remediations&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_score_sets&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_system_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_system_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_threats&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_cve_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_discovery_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>int <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_system_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_system_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">get_cvrf_product_id_from_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>, <span>char const* <span class='color_p'>cpe</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>xccdf_benchmark.h</span>, <span class='lib_name'>libopenscap.so.8.13.0</span><br/>
+<span class="iname">xccdf_benchmark_get_profile_by_id&#160;<span class='sym_p'><span>(&#160;struct xccdf_benchmark* <span class='color_p'>benchmark</span></span>, <span>char const* <span class='color_p'>profile_id</span></span>&#160;)</span></span><br/>
+<span class="iname">xccdf_benchmark_match_profile_id&#160;<span class='sym_p'><span>(&#160;struct xccdf_benchmark* <span class='color_p'>bench</span></span>, <span>char const* <span class='color_p'>profile_suffix</span></span>, <span>int* <span class='color_p'>match_status</span></span>&#160;)</span></span><br/>
+<span class="iname">xccdf_result_stig_viewer_export_source&#160;<span class='sym_p'><span>(&#160;struct xccdf_result* <span class='color_p'>result</span></span>, <span>char const* <span class='color_p'>filepath</span></span>&#160;)</span></span><br/>
+<span class="iname">xccdf_tailoring_match_profile_id&#160;<span class='sym_p'><span>(&#160;struct xccdf_tailoring* <span class='color_p'>tailoring</span></span>, <span>char const* <span class='color_p'>profile_suffix</span></span>, <span>int* <span class='color_p'>match_status</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>xccdf_session.h</span>, <span class='lib_name'>libopenscap.so.8.13.0</span><br/>
+<span class="iname">xccdf_session_set_xccdf_stig_viewer_export&#160;<span class='sym_p'><span>(&#160;struct xccdf_session* <span class='color_p'>session</span></span>, <span>char const* <span class='color_p'>xccdf_stig_viewer_file</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Other_Binary_Changes'></a><a name='Other_Binary_Changes_In_Types'></a>
+<h2>Other Changes in Data Types <span class='passed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>oscap.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_1')">
+<span class='ext'>[+]</span> <span class='ttype'>enum</span> oscap_document_type <span class='passed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_1" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>The member <b>OSCAP_DOCUMENT_CVRF_FEED</b> with value <b>15</b> has been added.</td>
+<td>No effect.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_2')">
+[+] affected symbols: 6 (0.3%)</span>
+<div id="c_2" style="display:none;">
+<div class='affected'><span class='iname_a'>oscap_determine_document_type&#160;<span class='sym_p'><span>(&#160;char const* <i>document</i></span>, <span>oscap_document_type_t* <span class='fp'>doc_type</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doc_type&#39; (pointer) has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_document_type_to_string&#160;<span class='sym_p'><span>(&#160;oscap_document_type_t <span class='fp'>type</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_schematron_validate_document&#160;<span class='sym_p'><span>(&#160;char const* <i>xmlfile</i></span>, <span>oscap_document_type_t <span class='fp'>doctype</span></span>, <span>char const* <i>version</i></span>, <span>char const* <i>outfile</i></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_source_get_scap_type&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <i>source</i></span>&#160;)</span></span><br/>
+<div class='affect'>Return value has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_validate_document&#160;<span class='sym_p'><span>(&#160;char const* <i>xmlfile</i></span>, <span>oscap_document_type_t <span class='fp'>doctype</span></span>, <span>char const* <i>version</i></span>, <span>xml_reporter <i>reporter</i></span>, <span>void* <i>arg</i></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oval_determine_document_schema_version&#160;<span class='sym_p'><span>(&#160;char const* <i>document</i></span>, <span>oscap_document_type_t <span class='fp'>doc_type</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doc_type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;34&nbsp;</span></h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvss_score.h<br/>
+ds_rds_session.h<br/>
+ds_sds_session.h<br/>
+oscap.h<br/>
+oscap_debug.h<br/>
+oscap_download_cb.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_source.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_handler.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_schema_version.h<br/>
+oval_session.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+oval_version.h<br/>
+scap_ds.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Sources'></a><h2>Source Files <span class='gray'>&nbsp;89&nbsp;</span></h2><hr/>
+<div class='h_list'>
+benchmark.c<br/>
+check_engine_plugin.c<br/>
+cpedict.c<br/>
+cpedict_ext_priv.c<br/>
+cpedict_priv.c<br/>
+cpelang.c<br/>
+cpelang_priv.c<br/>
+cpename.c<br/>
+cve.c<br/>
+cve_priv.c<br/>
+cvss.c<br/>
+debug.c<br/>
+ds_rds_session.c<br/>
+ds_sds_session.c<br/>
+elements.c<br/>
+error.c<br/>
+item.c<br/>
+list.c<br/>
+oscap_source.c<br/>
+oscapxml.c<br/>
+oval_affected.c<br/>
+oval_agent.c<br/>
+oval_behavior.c<br/>
+oval_collection.c<br/>
+oval_component.c<br/>
+oval_criteriaNode.c<br/>
+oval_definition.c<br/>
+oval_defModel.c<br/>
+oval_directives.c<br/>
+oval_entity.c<br/>
+oval_enumerations.c<br/>
+oval_filter.c<br/>
+oval_generator.c<br/>
+oval_message.c<br/>
+oval_object.c<br/>
+oval_objectContent.c<br/>
+oval_parser.c<br/>
+oval_probe.c<br/>
+oval_probe_ext.c<br/>
+oval_probe_session.c<br/>
+oval_recordField.c<br/>
+oval_reference.c<br/>
+oval_resModel.c<br/>
+oval_resultCriteriaNode.c<br/>
+oval_resultDefinition.c<br/>
+oval_resultDefinitionIterator.c<br/>
+oval_resultItem.c<br/>
+oval_resultSystem.c<br/>
+oval_resultTest.c<br/>
+oval_resultTestIterator.c<br/>
+oval_schema_version.c<br/>
+oval_session.c<br/>
+oval_set.c<br/>
+oval_state.c<br/>
+oval_stateContent.c<br/>
+oval_syschar.c<br/>
+oval_syscharIterator.c<br/>
+oval_sysEnt.c<br/>
+oval_sysInfo.c<br/>
+oval_sysInterface.c<br/>
+oval_sysItem.c<br/>
+oval_sysModel.c<br/>
+oval_test.c<br/>
+oval_value.c<br/>
+oval_variable.c<br/>
+oval_variableBinding.c<br/>
+oval_varModel.c<br/>
+oval_version.c<br/>
+profile.c<br/>
+rds.c<br/>
+rds_asset_index.c<br/>
+rds_index.c<br/>
+rds_report_index.c<br/>
+rds_report_request_index.c<br/>
+reference.c<br/>
+resolve.c<br/>
+result.c<br/>
+result_scoring.c<br/>
+rule.c<br/>
+sds.c<br/>
+sds_index.c<br/>
+tailoring.c<br/>
+text.c<br/>
+value.c<br/>
+xccdf_policy.c<br/>
+xccdf_policy_model.c<br/>
+xccdf_policy_remediate.c<br/>
+xccdf_policy_substitute.c<br/>
+xccdf_session.c<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Objects <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libopenscap.so.8.13.0<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><div id='SourceTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Module Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.2.15</td></tr>
+<tr><th>Version #2</th><td>maint-1.2</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>Subject</th><td width='150px'>Source Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>34</a></td></tr>
+<tr><th>Total Source Files</th><td><a href='#Sources' style='color:Blue;'>89</a></td></tr>
+<tr><th>Total Objects</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>2371 / 175</td></tr>
+<tr><th>Compatibility</th>
+<td class='compatible'>100%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>311</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+<tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Source_Changes_In_Types' style='color:Blue;'>1</a></td></tr>
+</table>
+
+<a name='Source_Added'></a><h2>Added Symbols <span class='new'>&nbsp;311&nbsp;</span></h2><hr/>
+<span class='h_name'>cvrf.h</span><br/>
+<span class="iname">cvrf_acknowledgment_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_names&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_organizations&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_get_urls&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment const* <span class='color_p'>ack</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_acknowledgment_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_acknowledgment* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch const* <span class='color_p'>branch</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>branch</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_get_branch_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_get_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_get_subbranches&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>branch</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_set_branch_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_branch_set_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_branch* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_name* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>publisher</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>publisher</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_get_contact_details&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_get_issuing_authority&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_get_vendor_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_set_contact_details&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_set_issuing_authority&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_publisher_set_vendor_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_publisher* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_add_revision&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>struct cvrf_revision* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>tracking</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>tracking</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_aliases&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>tracking</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_cur_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_generator_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_generator_engine&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_init_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_revision_history&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_tracking_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_get_version&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_cur_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_generator_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_generator_engine&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_init_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_tracking_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_doc_tracking_set_version&#160;<span class='sym_p'><span>(&#160;struct cvrf_doc_tracking* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_acknowledgments&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_aggregate_severity&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_doc_distribution&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_namespace&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_notes&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_publisher&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_references&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>doc</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_get_tracking&#160;<span class='sym_p'><span>(&#160;struct cvrf_document const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_aggregate_severity&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_doc_distribution&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_namespace&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_publisher&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>struct cvrf_doc_publisher* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_document_set_tracking&#160;<span class='sym_p'><span>(&#160;struct cvrf_document* <span class='color_p'>obj</span></span>, <span>struct cvrf_doc_tracking* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_group const* <span class='color_p'>group</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>group</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_group const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_get_group_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_group const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>group</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_group_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_group_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_group_set_group_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_group* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_add_model&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>obj</span></span>, <span>struct cvrf_model* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>index</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>index</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_export_source&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>index</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_index_file&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_models&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_results_source&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>import_source</span></span>, <span>char const* <span class='color_p'>os_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_get_source_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_index const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_import&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>index_source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_index_set_index_file&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_index_set_source_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_index* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement const* <span class='color_p'>involve</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement* <span class='color_p'>involve</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_involvement_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_involvement* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_add_vulnerability&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>struct cvrf_vulnerability* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_filter_by_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>, <span>char const* <span class='color_p'>cpe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>cvrf</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_doc_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_doc_type&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_document&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_export_source&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_identification&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_product_tree&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_results_source&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>import_source</span></span>, <span>char const* <span class='color_p'>os_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_get_vulnerabilities&#160;<span class='sym_p'><span>(&#160;struct cvrf_model const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_import&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_model_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_model_set_doc_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_set_doc_type&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_set_document&#160;<span class='sym_p'><span>(&#160;struct cvrf_model* <span class='color_p'>obj</span></span>, <span>struct cvrf_document* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_model_supported&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_note_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>note</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>note</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_audience&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_contents&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_get_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_note const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_audience&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_contents&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>int <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_note_set_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_note* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name const* <span class='color_p'>full_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name* <span class='color_p'>full_name</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_get_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_get_product_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_set_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_name_set_product_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_name* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status const* <span class='color_p'>stat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status* <span class='color_p'>status</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_get_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status* <span class='color_p'>stat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_status_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_status_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_add_group&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>obj</span></span>, <span>struct cvrf_group* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_add_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_name* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_add_relationship&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>obj</span></span>, <span>struct cvrf_relationship* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>tree</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_filter_by_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>, <span>char const* <span class='color_p'>cpe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_branches&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_product_groups&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_product_names&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_get_relationships&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_product_tree_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference const* <span class='color_p'>ref</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference* <span class='color_p'>ref</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_get_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_reference_set_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_reference* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>relation</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>relationship</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_get_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_get_product_reference&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_get_relates_to_ref&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_set_product_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_name* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_set_product_reference&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_relationship_set_relates_to_ref&#160;<span class='sym_p'><span>(&#160;struct cvrf_relationship* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_entitlement&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_group_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>remed</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_get_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_entitlement&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_remediation_set_url&#160;<span class='sym_p'><span>(&#160;struct cvrf_remediation* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>revision</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>revision</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_get_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_get_number&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_set_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_revision_set_number&#160;<span class='sym_p'><span>(&#160;struct cvrf_revision* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>attributes</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_get_evr_format&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_get_full_package_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_get_rpm_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_set_evr_format&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_set_full_package_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_rpm_attributes_set_rpm_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_rpm_attributes* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_add_metric&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>score_set</span></span>, <span>enum cvss_category <span class='color_p'>category</span></span>, <span>char const* <span class='color_p'>score</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_base_score&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_environmental_score&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_impact&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_temporal_score&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>score_set</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_get_vector&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_set_impact&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>obj</span></span>, <span>struct cvss_impact* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_score_set_set_vector&#160;<span class='sym_p'><span>(&#160;struct cvrf_score_set* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_index&#160;<span class='sym_p'><span>(&#160;struct cvrf_session const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_model&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_os_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_session const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_new_from_source_index&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_new_from_source_model&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <span class='color_p'>source</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_set_index&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>obj</span></span>, <span>struct cvrf_index* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_set_model&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>session</span></span>, <span>struct cvrf_model* <span class='color_p'>model</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_session_set_os_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_session* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat const* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_group_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_get_product_ids&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>threat</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_set_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_threat_set_description&#160;<span class='sym_p'><span>(&#160;struct cvrf_threat* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_cvrf_product_status&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_product_status* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_involvement&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_involvement* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_remediation&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_remediation* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_score_set&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_score_set* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_add_threat&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_threat* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_clone&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe const* <span class='color_p'>vuln_cwe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe* <span class='color_p'>vuln_cwe</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_get_cwe&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_get_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_set_cwe&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_set_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_filter_by_product&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>, <span>char const* <span class='color_p'>prod</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vulnerability</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_acknowledgments&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_cve_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_discovery_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_involvements&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_notes&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_product_statuses&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_references&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>vuln</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_remediations&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_score_sets&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_system_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_system_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_threats&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_new&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_cve_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_discovery_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_ordinal&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>int <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_release_date&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_system_id&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_system_name&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_set_title&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>char const* <span class='color_p'>newval</span></span>&#160;)</span></span><br/>
+<span class="iname">get_cvrf_product_id_from_cpe&#160;<span class='sym_p'><span>(&#160;struct cvrf_product_tree* <span class='color_p'>tree</span></span>, <span>char const* <span class='color_p'>cpe</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>xccdf_benchmark.h</span><br/>
+<span class="iname">xccdf_benchmark_get_profile_by_id&#160;<span class='sym_p'><span>(&#160;struct xccdf_benchmark* <span class='color_p'>benchmark</span></span>, <span>char const* <span class='color_p'>profile_id</span></span>&#160;)</span></span><br/>
+<span class="iname">xccdf_benchmark_match_profile_id&#160;<span class='sym_p'><span>(&#160;struct xccdf_benchmark* <span class='color_p'>bench</span></span>, <span>char const* <span class='color_p'>profile_suffix</span></span>, <span>int* <span class='color_p'>match_status</span></span>&#160;)</span></span><br/>
+<span class="iname">xccdf_result_stig_viewer_export_source&#160;<span class='sym_p'><span>(&#160;struct xccdf_result* <span class='color_p'>result</span></span>, <span>char const* <span class='color_p'>filepath</span></span>&#160;)</span></span><br/>
+<span class="iname">xccdf_tailoring_match_profile_id&#160;<span class='sym_p'><span>(&#160;struct xccdf_tailoring* <span class='color_p'>tailoring</span></span>, <span>char const* <span class='color_p'>profile_suffix</span></span>, <span>int* <span class='color_p'>match_status</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>xccdf_session.h</span><br/>
+<span class="iname">xccdf_session_set_xccdf_stig_viewer_export&#160;<span class='sym_p'><span>(&#160;struct xccdf_session* <span class='color_p'>session</span></span>, <span>char const* <span class='color_p'>xccdf_stig_viewer_file</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Other_Source_Changes'></a><a name='Other_Source_Changes_In_Types'></a>
+<h2>Other Changes in Data Types <span class='passed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>oscap.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_3')">
+<span class='ext'>[+]</span> <span class='ttype'>enum</span> oscap_document_type <span class='passed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_3" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>The member <b>OSCAP_DOCUMENT_CVRF_FEED</b> with value <b>15</b> has been added.</td>
+<td>No effect.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_4')">
+[+] affected symbols: 6 (0.3%)</span>
+<div id="c_4" style="display:none;">
+<div class='affected'><span class='iname_a'>oscap_determine_document_type&#160;<span class='sym_p'><span>(&#160;char const* <i>document</i></span>, <span>oscap_document_type_t* <span class='fp'>doc_type</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doc_type&#39; (pointer) has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_document_type_to_string&#160;<span class='sym_p'><span>(&#160;oscap_document_type_t <span class='fp'>type</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_schematron_validate_document&#160;<span class='sym_p'><span>(&#160;char const* <i>xmlfile</i></span>, <span>oscap_document_type_t <span class='fp'>doctype</span></span>, <span>char const* <i>version</i></span>, <span>char const* <i>outfile</i></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_source_get_scap_type&#160;<span class='sym_p'><span>(&#160;struct oscap_source* <i>source</i></span>&#160;)</span></span><br/>
+<div class='affect'>Return value has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oscap_validate_document&#160;<span class='sym_p'><span>(&#160;char const* <i>xmlfile</i></span>, <span>oscap_document_type_t <span class='fp'>doctype</span></span>, <span>char const* <i>version</i></span>, <span>xml_reporter <i>reporter</i></span>, <span>void* <i>arg</i></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doctype&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+<span class='iname_a'>oval_determine_document_schema_version&#160;<span class='sym_p'><span>(&#160;char const* <i>document</i></span>, <span>oscap_document_type_t <span class='fp'>doc_type</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;doc_type&#39; has base type &#39;enum oscap_document_type&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;34&nbsp;</span></h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvss_score.h<br/>
+ds_rds_session.h<br/>
+ds_sds_session.h<br/>
+oscap.h<br/>
+oscap_debug.h<br/>
+oscap_download_cb.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_source.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_handler.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_schema_version.h<br/>
+oval_session.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+oval_version.h<br/>
+scap_ds.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Sources'></a><h2>Source Files <span class='gray'>&nbsp;89&nbsp;</span></h2><hr/>
+<div class='h_list'>
+benchmark.c<br/>
+check_engine_plugin.c<br/>
+cpedict.c<br/>
+cpedict_ext_priv.c<br/>
+cpedict_priv.c<br/>
+cpelang.c<br/>
+cpelang_priv.c<br/>
+cpename.c<br/>
+cve.c<br/>
+cve_priv.c<br/>
+cvss.c<br/>
+debug.c<br/>
+ds_rds_session.c<br/>
+ds_sds_session.c<br/>
+elements.c<br/>
+error.c<br/>
+item.c<br/>
+list.c<br/>
+oscap_source.c<br/>
+oscapxml.c<br/>
+oval_affected.c<br/>
+oval_agent.c<br/>
+oval_behavior.c<br/>
+oval_collection.c<br/>
+oval_component.c<br/>
+oval_criteriaNode.c<br/>
+oval_definition.c<br/>
+oval_defModel.c<br/>
+oval_directives.c<br/>
+oval_entity.c<br/>
+oval_enumerations.c<br/>
+oval_filter.c<br/>
+oval_generator.c<br/>
+oval_message.c<br/>
+oval_object.c<br/>
+oval_objectContent.c<br/>
+oval_parser.c<br/>
+oval_probe.c<br/>
+oval_probe_ext.c<br/>
+oval_probe_session.c<br/>
+oval_recordField.c<br/>
+oval_reference.c<br/>
+oval_resModel.c<br/>
+oval_resultCriteriaNode.c<br/>
+oval_resultDefinition.c<br/>
+oval_resultDefinitionIterator.c<br/>
+oval_resultItem.c<br/>
+oval_resultSystem.c<br/>
+oval_resultTest.c<br/>
+oval_resultTestIterator.c<br/>
+oval_schema_version.c<br/>
+oval_session.c<br/>
+oval_set.c<br/>
+oval_state.c<br/>
+oval_stateContent.c<br/>
+oval_syschar.c<br/>
+oval_syscharIterator.c<br/>
+oval_sysEnt.c<br/>
+oval_sysInfo.c<br/>
+oval_sysInterface.c<br/>
+oval_sysItem.c<br/>
+oval_sysModel.c<br/>
+oval_test.c<br/>
+oval_value.c<br/>
+oval_variable.c<br/>
+oval_variableBinding.c<br/>
+oval_varModel.c<br/>
+oval_version.c<br/>
+profile.c<br/>
+rds.c<br/>
+rds_asset_index.c<br/>
+rds_index.c<br/>
+rds_report_index.c<br/>
+rds_report_request_index.c<br/>
+reference.c<br/>
+resolve.c<br/>
+result.c<br/>
+result_scoring.c<br/>
+rule.c<br/>
+sds.c<br/>
+sds_index.c<br/>
+tailoring.c<br/>
+text.c<br/>
+value.c<br/>
+xccdf_policy.c<br/>
+xccdf_policy_model.c<br/>
+xccdf_policy_remediate.c<br/>
+xccdf_policy_substitute.c<br/>
+xccdf_session.c<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Objects <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libopenscap.so.8.13.0<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><hr/>
+<div class='footer' align='right'><i>Generated by <a href='https://github.com/lvc/abi-compliance-checker'>ABI Compliance Checker</a> 2.1 &#160;</i>
+</div>
+<br/>
+
+</body></html>
