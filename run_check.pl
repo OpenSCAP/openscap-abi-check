@@ -30,6 +30,7 @@ sub build {
 	chdir "openscap-$version";
 
 	if ($version == "master" or $version ge "1.3.0") {
+		mkdir "build";
 		chdir "build";
 		system("cmake -DCMAKE_INSTALL_PREFIX=$root/$version -DENABLE_SCE=TRUE -DCMAKE_BUILD_TYPE=Debug ..");
 		system("make");
