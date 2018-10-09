@@ -1,0 +1,849 @@
+<!-- kind:binary;verdict:incompatible;affected:0.3;added:8;removed:8;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:1;interface_problems_low:0;changed_constants:0;tool_version:2.3 -->
+<!-- kind:source;verdict:incompatible;affected:0.3;added:13;removed:8;type_problems_high:0;type_problems_medium:0;type_problems_low:0;interface_problems_high:0;interface_problems_medium:1;interface_problems_low:0;changed_constants:0;tool_version:2.3 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="keywords" content="openscap, compatibility, API, ABI, report" />
+<meta name="description" content="API/ABI compatibility report for the openscap object between 1.3.0_alpha2 and master versions" />
+<title>openscap: 1.3.0_alpha2 to master compatibility report</title>
+<style type="text/css">
+body {
+    font-family:Arial, sans-serif;
+    background-color:White;
+    color:Black;
+}
+hr {
+    color:Black;
+    background-color:Black;
+    height:1px;
+    border:0;
+}
+h1 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.625em;
+}
+h2 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.25em;
+    white-space:nowrap;
+}
+span.section {
+    font-weight:bold;
+    cursor:pointer;
+    color:#003E69;
+    white-space:nowrap;
+    margin-left:0.3125em;
+}
+span.new_sign {
+    font-weight:bold;
+    margin-left:1.65em;
+    color:#003E69;
+}
+span.new_sign_lbl {
+    margin-left:3em;
+    font-size:1em;
+    color:Black;
+}
+span:hover.section {
+    color:#336699;
+}
+span.sect_aff {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:#cc3300;
+}
+span.sect_info {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:Black;
+}
+span.ext {
+    font-weight:normal;
+}
+span.h_name {
+    color:#cc3300;
+    font-size:0.875em;
+    font-weight:bold;
+}
+div.h_list, div.lib_list {
+    font-size:0.94em;
+    padding-left:0.4em;
+}
+span.ns {
+    color:#408080;
+    font-size:0.94em;
+}
+span.lib_name {
+    color:Green;
+    font-size:0.875em;
+    font-weight:bold;
+}
+span.iname {
+    font-weight:bold;
+    color:#003E69;
+    margin-left:0.3125em;
+}
+span.iname_b {
+    font-weight:bold;
+}
+span.iname_a {
+    color:#333333;
+    font-weight:bold;
+    font-size:0.94em;
+}
+span.sym_p {
+    font-weight:normal;
+    white-space:normal;
+}
+span.sym_pd {
+    white-space:normal;
+}
+span.sym_p span, span.sym_pd span {
+    white-space:nowrap;
+}
+div.affect {
+    padding-left:1em;
+    padding-bottom:10px;
+    font-size:0.87em;
+    font-style:italic;
+    line-height:0.9em;
+}
+div.affected {
+    padding-left:1.9em;
+    padding-top:10px;
+}
+table.ptable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:0.95em;
+    margin-top:3px;
+    margin-bottom:3px;
+    width:56.25em;
+}
+table.ptable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    text-align:left;
+    vertical-align:top;
+    max-width:28em;
+    word-wrap:break-word;
+}
+table.ptable th.pn {
+    width:2%;
+}
+table.ptable th.chg {
+    width:47%;
+}
+table.vtable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:1.9em;
+    margin-top:0.7em;
+}
+table.vtable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    vertical-align:top;
+    max-width:450px;
+    word-wrap:break-word;
+}
+table.ptable th, table.vtable th {
+    background-color:#eeeeee;
+    font-weight:bold;
+    color:#333333;
+    font-family:Verdana, Arial;
+    font-size:0.875em;
+    border:1px solid gray;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    padding:3px;
+}
+table.summary {
+    border-collapse:collapse;
+    border:1px outset black;
+}
+table.summary th {
+    background-color:#eeeeee;
+    font-weight:normal;
+    text-align:left;
+    font-size:0.94em;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px;
+}
+table.summary td {
+    text-align:right;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px 5px 3px 10px;
+}
+span.mngl {
+    padding-left:1em;
+    font-size:0.875em;
+    cursor:text;
+    color:#444444;
+    font-weight:bold;
+}
+span.pleft {
+    padding-left:2.5em;
+}
+span.sym_ver {
+    color:#333333;
+    white-space:nowrap;
+    font-family:"DejaVu Sans Mono", Monospace;
+}
+span.attr {
+    color:#333333;
+    font-weight:normal;
+}
+span.color_p {
+    font-style:italic;
+    color:Brown;
+}
+span.p {
+    font-style:italic;
+}
+span.fp {
+    font-style:italic;
+    background-color:#DCDCDC;
+}
+span.ttype {
+    font-weight:normal;
+}
+span.nowrap {
+    white-space:nowrap;
+}
+span.value {
+    font-weight:bold;
+}
+.passed {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.warning {
+    background-color:#F4F4AF;
+    font-weight:normal;
+}
+.failed {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.new {
+    background-color:#C6DEFF;
+    font-weight:normal;
+}
+.compatible {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.almost_compatible {
+    background-color:#FFDAA3;
+    font-weight:normal;
+}
+.incompatible {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.gray {
+    background-color:#DCDCDC;
+    font-weight:normal;
+}
+.top_ref {
+    font-size:0.69em;
+}
+.footer {
+    font-size:0.75em;
+}
+
+.tabset {
+    float:left;
+}
+a.tab {
+    border:1px solid Black;
+    float:left;
+    margin:0px 5px -1px 0px;
+    padding:3px 5px 3px 5px;
+    position:relative;
+    font-size:0.875em;
+    background-color:#DDD;
+    text-decoration:none;
+    color:Black;
+}
+a.disabled:hover
+{
+    color:Black;
+    background:#EEE;
+}
+a.active:hover
+{
+    color:Black;
+    background:White;
+}
+a.active {
+    border-bottom-color:White;
+    background-color:White;
+}
+div.tab {
+    border-top:1px solid Black;
+    padding:0px;
+    width:100%;
+    clear:both;
+}
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+function showContent(header, id)
+{
+    e = document.getElementById(id);
+    if(e.style.display == 'none')
+    {
+        e.style.display = 'block';
+        e.style.visibility = 'visible';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[&minus;]");
+    }
+    else
+    {
+        e.style.display = 'none';
+        e.style.visibility = 'hidden';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[+]");
+    }
+}
+function initTabs()
+{
+    var url = window.location.href;
+    if(url.indexOf('_Source_')!=-1 || url.indexOf('#Source')!=-1)
+    {
+        var tab1 = document.getElementById('BinaryID');
+        var tab2 = document.getElementById('SourceID');
+        tab1.className='tab disabled';
+        tab2.className='tab active';
+    }
+    var sets = document.getElementsByTagName('div');
+    for (var i = 0; i < sets.length; i++)
+    {
+        if (sets[i].className.indexOf('tabset') != -1)
+        {
+            var tabs = [];
+            var links = sets[i].getElementsByTagName('a');
+            for (var j = 0; j < links.length; j++)
+            {
+                if (links[j].className.indexOf('tab') != -1)
+                {
+                    tabs.push(links[j]);
+                    links[j].tabs = tabs;
+                    var tab = document.getElementById(links[j].href.substr(links[j].href.indexOf('#') + 1));
+                    //reset all tabs on start
+                    if (tab)
+                    {
+                        if (links[j].className.indexOf('active')!=-1) {
+                            tab.style.display = 'block';
+                        }
+                        else {
+                            tab.style.display = 'none';
+                        }
+                    }
+                    links[j].onclick = function()
+                    {
+                        var tab = document.getElementById(this.href.substr(this.href.indexOf('#') + 1));
+                        if (tab)
+                        {
+                            //reset all tabs before change
+                            for (var k = 0; k < this.tabs.length; k++)
+                            {
+                                document.getElementById(this.tabs[k].href.substr(this.tabs[k].href.indexOf('#') + 1)).style.display = 'none';
+                                this.tabs[k].className = this.tabs[k].className.replace('active', 'disabled');
+                            }
+                            this.className = 'tab active';
+                            tab.style.display = 'block';
+                            // window.location.hash = this.id.replace('ID', '');
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(url.indexOf('#')!=-1) {
+        location.href=location.href;
+    }
+}
+if (window.addEventListener) window.addEventListener('load', initTabs, false);
+else if (window.attachEvent) window.attachEvent('onload', initTabs);
+-->
+</script>
+</head>
+<body><a name='Source'></a><a name='Binary'></a><a name='Top'></a><h1>API compatibility report for the <span style='color:Blue;'>libopenscap.so</span> object between <span style='color:Red;'>1.3.0_alpha2</span> and <span style='color:Red;'>master</span> versions on <span style='color:Blue;'>x86_64</span></h1>
+
+            <br/>
+            <div class='tabset'>
+            <a id='BinaryID' href='#BinaryTab' class='tab active'>Binary<br/>Compatibility</a>
+            <a id='SourceID' href='#SourceTab' style='margin-left:3px' class='tab disabled'>Source<br/>Compatibility</a>
+            </div><div id='BinaryTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Module Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.3.0_alpha2</td></tr>
+<tr><th>Version #2</th><td>master</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>7.3.1</td></tr>
+<tr><th>Subject</th><td width='150px'>Binary Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>33</a></td></tr>
+<tr><th>Total Source Files</th><td><a href='#Sources' style='color:Blue;'>89</a></td></tr>
+<tr><th>Total Objects</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>2630 / 192</td></tr>
+<tr><th>Compatibility</th>
+<td class='warning'>99.7%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Binary_Added' style='color:Blue;'>8</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td class='failed'><a href='#Binary_Removed' style='color:Blue;'>8</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td class='failed'><a href='#Symbol_Binary_Problems_Medium' style='color:Blue;'>1</a></td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+</table>
+
+<a name='Binary_Added'></a><h2>Added Symbols <span class='new'>&nbsp;8&nbsp;</span></h2><hr/>
+<span class='h_name'>cvrf.h</span>, <span class='lib_name'>libopenscap.so.24.0.0</span><br/>
+<span class="iname">cvrf_vulnerability_add_cwe&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_vulnerability_cwe* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_cwes&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>oval_definitions.h</span>, <span class='lib_name'>libopenscap.so.24.0.0</span><br/>
+<span class="iname">oval_operation_from_text&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>text</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Binary_Removed'></a><a name='Binary_Withdrawn'></a><h2>Removed Symbols <span class='failed'>&nbsp;8&nbsp;</span></h2><hr/>
+<span class='h_name'>cpe_dict.h</span>, <span class='lib_name'>libopenscap.so.24.0.0</span><br/>
+<span class="iname">cpe_dict_model_get_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_dict_model const* <span class='color_p'>dict</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_dict_model_set_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_dict_model* <span class='color_p'>dict</span></span>, <span>char const* <span class='color_p'>origin_file</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_name_match_dict_str&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>cpestr</span></span>, <span>struct cpe_dict_model* <span class='color_p'>dict</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>cpe_lang.h</span>, <span class='lib_name'>libopenscap.so.24.0.0</span><br/>
+<span class="iname">cpe_lang_model_get_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_lang_model const* <span class='color_p'>lang_model</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_lang_model_set_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_lang_model* <span class='color_p'>lang_model</span></span>, <span>char const* <span class='color_p'>origin_file</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_platform_match_cpe&#160;<span class='sym_p'><span>(&#160;struct cpe_name** <span class='color_p'>cpe</span></span>, <span>size_t <span class='color_p'>n</span></span>, <span>struct cpe_platform const* <span class='color_p'>platform</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>cpe_name.h</span>, <span class='lib_name'>libopenscap.so.24.0.0</span><br/>
+<span class="iname">cpe_name_match_cpes&#160;<span class='sym_p'><span>(&#160;struct cpe_name const* <span class='color_p'>name</span></span>, <span>size_t <span class='color_p'>n</span></span>, <span>struct cpe_name** <span class='color_p'>namelist</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_name_match_strs&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>candidate</span></span>, <span>size_t <span class='color_p'>n</span></span>, <span>char** <span class='color_p'>targets</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Medium_Risk_Binary_Problems'></a><a name='Symbol_Binary_Problems_Medium'></a><a name='Interface_Binary_Problems_Medium'></a>
+<h2>Problems with Symbols, Medium Severity <span class='failed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>oscap_debug.h</span>, <span class='lib_name'>libopenscap.so.24.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_1')">
+<span class='ext'>[+]</span> oscap_set_verbose&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>verbosity_level</span></span>, <span>char const* <span class='color_p'>filename</span></span>, <span>_Bool <span class='color_p'>is_probe</span></span>&#160;)</span> <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_1" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>oscap_set_verbose&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>verbosity_level</span></span>, <span>char const* <span class='color_p'>filename</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>3rd</b> parameter <b>is_probe</b> has been removed from the calling stack.</td>
+<td>This parameter will be ignored by the function.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;33&nbsp;</span></h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvrf.h<br/>
+cvss_score.h<br/>
+ds_rds_session.h<br/>
+ds_sds_session.h<br/>
+oscap.h<br/>
+oscap_debug.h<br/>
+oscap_download_cb.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_source.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_schema_version.h<br/>
+oval_session.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+scap_ds.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Sources'></a><h2>Source Files <span class='gray'>&nbsp;89&nbsp;</span></h2><hr/>
+<div class='h_list'>
+benchmark.c<br/>
+check_engine_plugin.c<br/>
+cpedict.c<br/>
+cpedict_ext_priv.c<br/>
+cpedict_priv.c<br/>
+cpelang.c<br/>
+cpelang_priv.c<br/>
+cpename.c<br/>
+cve.c<br/>
+cve_priv.c<br/>
+cvrf.c<br/>
+cvrf_eval.c<br/>
+cvrf_priv.c<br/>
+cvss.c<br/>
+debug.c<br/>
+ds_rds_session.c<br/>
+ds_sds_session.c<br/>
+elements.c<br/>
+error.c<br/>
+item.c<br/>
+list.c<br/>
+oscap_source.c<br/>
+oscapxml.c<br/>
+oval_affected.c<br/>
+oval_agent.c<br/>
+oval_behavior.c<br/>
+oval_collection.c<br/>
+oval_component.c<br/>
+oval_criteriaNode.c<br/>
+oval_definition.c<br/>
+oval_defModel.c<br/>
+oval_directives.c<br/>
+oval_entity.c<br/>
+oval_enumerations.c<br/>
+oval_filter.c<br/>
+oval_generator.c<br/>
+oval_message.c<br/>
+oval_object.c<br/>
+oval_objectContent.c<br/>
+oval_probe.c<br/>
+oval_probe_session.c<br/>
+oval_recordField.c<br/>
+oval_reference.c<br/>
+oval_resModel.c<br/>
+oval_resultCriteriaNode.c<br/>
+oval_resultDefinition.c<br/>
+oval_resultDefinitionIterator.c<br/>
+oval_resultItem.c<br/>
+oval_resultSystem.c<br/>
+oval_resultTest.c<br/>
+oval_resultTestIterator.c<br/>
+oval_schema_version.c<br/>
+oval_session.c<br/>
+oval_set.c<br/>
+oval_state.c<br/>
+oval_stateContent.c<br/>
+oval_syschar.c<br/>
+oval_syscharIterator.c<br/>
+oval_sysEnt.c<br/>
+oval_sysInfo.c<br/>
+oval_sysInterface.c<br/>
+oval_sysItem.c<br/>
+oval_sysModel.c<br/>
+oval_test.c<br/>
+oval_value.c<br/>
+oval_variable.c<br/>
+oval_variableBinding.c<br/>
+oval_varModel.c<br/>
+profile.c<br/>
+rds.c<br/>
+rds_asset_index.c<br/>
+rds_index.c<br/>
+rds_report_index.c<br/>
+rds_report_request_index.c<br/>
+reference.c<br/>
+resolve.c<br/>
+result.c<br/>
+result_scoring.c<br/>
+rule.c<br/>
+sds.c<br/>
+sds_index.c<br/>
+tailoring.c<br/>
+text.c<br/>
+value.c<br/>
+xccdf_policy.c<br/>
+xccdf_policy_model.c<br/>
+xccdf_policy_remediate.c<br/>
+xccdf_policy_substitute.c<br/>
+xccdf_session.c<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Objects <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libopenscap.so.24.0.0<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><div id='SourceTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Module Name</th><td>openscap</td></tr>
+<tr><th>Version #1</th><td>1.3.0_alpha2</td></tr>
+<tr><th>Version #2</th><td>master</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>Subject</th><td width='150px'>Source Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>33</a></td></tr>
+<tr><th>Total Source Files</th><td><a href='#Sources' style='color:Blue;'>89</a></td></tr>
+<tr><th>Total Objects</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>2630 / 192</td></tr>
+<tr><th>Compatibility</th>
+<td class='warning'>99.7%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>13</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td class='failed'><a href='#Source_Removed' style='color:Blue;'>8</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td class='failed'><a href='#Symbol_Source_Problems_Medium' style='color:Blue;'>1</a></td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+</table>
+
+<a name='Source_Added'></a><h2>Added Symbols <span class='new'>&nbsp;13&nbsp;</span></h2><hr/>
+<span class='h_name'>cvrf.h</span><br/>
+<span class="iname">cvrf_vulnerability_add_cwe&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability* <span class='color_p'>obj</span></span>, <span>struct cvrf_vulnerability_cwe* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_free&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_has_more&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_next&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_remove&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_cwe_iterator_reset&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability_cwe_iterator* <span class='color_p'>it</span></span>&#160;)</span></span><br/>
+<span class="iname">cvrf_vulnerability_get_cwes&#160;<span class='sym_p'><span>(&#160;struct cvrf_vulnerability const* <span class='color_p'>item</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>oscap_helpers.h</span><br/>
+<span class="iname">oscap_basename&#160;<span class='sym_p'><span>(&#160;char* <span class='color_p'>path</span></span>&#160;)</span></span><br/>
+<span class="iname">oscap_dirname&#160;<span class='sym_p'><span>(&#160;char* <span class='color_p'>path</span></span>&#160;)</span></span><br/>
+<span class="iname">oscap_realpath&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>path</span></span>, <span>char* <span class='color_p'>resolved_path</span></span>&#160;)</span></span><br/>
+<span class="iname">oscap_sprintf&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>fmt</span></span>, <span>...</span>&#160;)</span></span><br/>
+<span class="iname">oscap_strtok_r&#160;<span class='sym_p'><span>(&#160;char* <span class='color_p'>str</span></span>, <span>char const* <span class='color_p'>delim</span></span>, <span>char** <span class='color_p'>saveptr</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>oval_definitions.h</span><br/>
+<span class="iname">oval_operation_from_text&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>text</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Source_Removed'></a><a name='Source_Withdrawn'></a><h2>Removed Symbols <span class='failed'>&nbsp;8&nbsp;</span></h2><hr/>
+<span class='h_name'>cpe_dict.h</span><br/>
+<span class="iname">cpe_dict_model_get_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_dict_model const* <span class='color_p'>dict</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_dict_model_set_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_dict_model* <span class='color_p'>dict</span></span>, <span>char const* <span class='color_p'>origin_file</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_name_match_dict_str&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>cpestr</span></span>, <span>struct cpe_dict_model* <span class='color_p'>dict</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>cpe_lang.h</span><br/>
+<span class="iname">cpe_lang_model_get_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_lang_model const* <span class='color_p'>lang_model</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_lang_model_set_origin_file&#160;<span class='sym_p'><span>(&#160;struct cpe_lang_model* <span class='color_p'>lang_model</span></span>, <span>char const* <span class='color_p'>origin_file</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_platform_match_cpe&#160;<span class='sym_p'><span>(&#160;struct cpe_name** <span class='color_p'>cpe</span></span>, <span>size_t <span class='color_p'>n</span></span>, <span>struct cpe_platform const* <span class='color_p'>platform</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>cpe_name.h</span><br/>
+<span class="iname">cpe_name_match_cpes&#160;<span class='sym_p'><span>(&#160;struct cpe_name const* <span class='color_p'>name</span></span>, <span>size_t <span class='color_p'>n</span></span>, <span>struct cpe_name** <span class='color_p'>namelist</span></span>&#160;)</span></span><br/>
+<span class="iname">cpe_name_match_strs&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>candidate</span></span>, <span>size_t <span class='color_p'>n</span></span>, <span>char** <span class='color_p'>targets</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Medium_Risk_Source_Problems'></a><a name='Symbol_Source_Problems_Medium'></a><a name='Interface_Source_Problems_Medium'></a>
+<h2>Problems with Symbols, Medium Severity <span class='failed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>oscap_debug.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_2')">
+<span class='ext'>[+]</span> oscap_set_verbose&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>verbosity_level</span></span>, <span>char const* <span class='color_p'>filename</span></span>, <span>_Bool <span class='color_p'>is_probe</span></span>&#160;)</span> <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_2" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>oscap_set_verbose&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>verbosity_level</span></span>, <span>char const* <span class='color_p'>filename</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>3rd</b> parameter <b>is_probe</b> has been removed from the calling stack.</td>
+<td>Recompilation of a client program may be broken.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;33&nbsp;</span></h2><hr/>
+<div class='h_list'>
+check_engine_plugin.h<br/>
+cpe_dict.h<br/>
+cpe_lang.h<br/>
+cpe_name.h<br/>
+cve_nvd.h<br/>
+cvrf.h<br/>
+cvss_score.h<br/>
+ds_rds_session.h<br/>
+ds_sds_session.h<br/>
+oscap.h<br/>
+oscap_debug.h<br/>
+oscap_download_cb.h<br/>
+oscap_error.h<br/>
+oscap_reference.h<br/>
+oscap_source.h<br/>
+oscap_text.h<br/>
+oval_adt.h<br/>
+oval_agent_api.h<br/>
+oval_agent_xccdf_api.h<br/>
+oval_definitions.h<br/>
+oval_directives.h<br/>
+oval_probe.h<br/>
+oval_probe_session.h<br/>
+oval_results.h<br/>
+oval_schema_version.h<br/>
+oval_session.h<br/>
+oval_system_characteristics.h<br/>
+oval_types.h<br/>
+oval_variables.h<br/>
+scap_ds.h<br/>
+xccdf_benchmark.h<br/>
+xccdf_policy.h<br/>
+xccdf_session.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Sources'></a><h2>Source Files <span class='gray'>&nbsp;89&nbsp;</span></h2><hr/>
+<div class='h_list'>
+benchmark.c<br/>
+check_engine_plugin.c<br/>
+cpedict.c<br/>
+cpedict_ext_priv.c<br/>
+cpedict_priv.c<br/>
+cpelang.c<br/>
+cpelang_priv.c<br/>
+cpename.c<br/>
+cve.c<br/>
+cve_priv.c<br/>
+cvrf.c<br/>
+cvrf_eval.c<br/>
+cvrf_priv.c<br/>
+cvss.c<br/>
+debug.c<br/>
+ds_rds_session.c<br/>
+ds_sds_session.c<br/>
+elements.c<br/>
+error.c<br/>
+item.c<br/>
+list.c<br/>
+oscap_source.c<br/>
+oscapxml.c<br/>
+oval_affected.c<br/>
+oval_agent.c<br/>
+oval_behavior.c<br/>
+oval_collection.c<br/>
+oval_component.c<br/>
+oval_criteriaNode.c<br/>
+oval_definition.c<br/>
+oval_defModel.c<br/>
+oval_directives.c<br/>
+oval_entity.c<br/>
+oval_enumerations.c<br/>
+oval_filter.c<br/>
+oval_generator.c<br/>
+oval_message.c<br/>
+oval_object.c<br/>
+oval_objectContent.c<br/>
+oval_probe.c<br/>
+oval_probe_session.c<br/>
+oval_recordField.c<br/>
+oval_reference.c<br/>
+oval_resModel.c<br/>
+oval_resultCriteriaNode.c<br/>
+oval_resultDefinition.c<br/>
+oval_resultDefinitionIterator.c<br/>
+oval_resultItem.c<br/>
+oval_resultSystem.c<br/>
+oval_resultTest.c<br/>
+oval_resultTestIterator.c<br/>
+oval_schema_version.c<br/>
+oval_session.c<br/>
+oval_set.c<br/>
+oval_state.c<br/>
+oval_stateContent.c<br/>
+oval_syschar.c<br/>
+oval_syscharIterator.c<br/>
+oval_sysEnt.c<br/>
+oval_sysInfo.c<br/>
+oval_sysInterface.c<br/>
+oval_sysItem.c<br/>
+oval_sysModel.c<br/>
+oval_test.c<br/>
+oval_value.c<br/>
+oval_variable.c<br/>
+oval_variableBinding.c<br/>
+oval_varModel.c<br/>
+profile.c<br/>
+rds.c<br/>
+rds_asset_index.c<br/>
+rds_index.c<br/>
+rds_report_index.c<br/>
+rds_report_request_index.c<br/>
+reference.c<br/>
+resolve.c<br/>
+result.c<br/>
+result_scoring.c<br/>
+rule.c<br/>
+sds.c<br/>
+sds_index.c<br/>
+tailoring.c<br/>
+text.c<br/>
+value.c<br/>
+xccdf_policy.c<br/>
+xccdf_policy_model.c<br/>
+xccdf_policy_remediate.c<br/>
+xccdf_policy_substitute.c<br/>
+xccdf_session.c<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Objects <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libopenscap.so.24.0.0<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><hr/>
+<div class='footer' align='right'><i>Generated by <a href='https://github.com/lvc/abi-compliance-checker'>ABI Compliance Checker</a> 2.3 &#160;</i>
+</div>
+<br/>
+
+</body></html>
